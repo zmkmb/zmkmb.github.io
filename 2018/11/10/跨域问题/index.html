@@ -8,12 +8,12 @@
   
   
   
-  <title>js严格模式 | zmkm</title>
+  <title>跨域问题 | zmkm</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="前端,js,">
+    <meta name="keywords" content="js 浏览器,">
   
 
   <script>
@@ -176,24 +176,17 @@
 
 <div class="post">
   <h1 class="article-title">
-    <span>js严格模式</span>
+    <span>跨域问题</span>
   </h1>
   <div class="article-top-meta">
     <span>
       发布 : 
-      2018-03-28
+      2018-11-10
     </span>
     
-      <span>
-        分类 : 
-          <a href="/categories/前端/">
-            前端
-          </a>
-      </span>
-    
     
       <span>
-        浏览 : <span class="article-timer" data-identity="js严格模式"></span>
+        浏览 : <span class="article-timer" data-identity="跨域问题"></span>
       </span>
     
   </div>
@@ -202,19 +195,28 @@
 
   <div class="article-content">
     <div class="markdown-body">
-      <h4 id="有哪些变化"><a href="#有哪些变化" class="headerlink" title="有哪些变化"></a>有哪些变化</h4><p>1.变量必须显式声明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;</span><br><span class="line">//下面变量声明会报错</span><br><span class="line">a = 1</span><br></pre></td></tr></table></figure>
-<p>2.this默认是undefined</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;</span><br><span class="line">function a ()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">a()//非严格模式是window,严格模式是undefinded</span><br></pre></td></tr></table></figure>
-<p>3.严格模式要求函数的参数名唯一</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;</span><br><span class="line">//下面函数声明会报错</span><br><span class="line">function (a,a)&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>4.不可以用with</p>
-<p>5.禁止八进制数字语法</p>
-<p>6.不再支持 arguments.callee</p>
-<p>7.参数的值不会随 arguments 对象的值的改变而变化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function fn1(a)&#123;</span><br><span class="line">  arguments[0] = 2;</span><br><span class="line">  console.log(a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function fn2(a)&#123;</span><br><span class="line"> &quot;use strict&quot;</span><br><span class="line">  arguments[0] = 2;</span><br><span class="line">  console.log(a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn1(1)//2</span><br><span class="line">fn2(1)//1</span><br></pre></td></tr></table></figure></p>
-<p>  。。。</p>
-<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>如果合并脚本，严格模式会导致，一些没用采用严格模式的脚本出错，所以使用时最好用一个函数把代码包裹器来。</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode</a></p>
+      <p></p>
+<h5 id="跨域的请求是否被发送出去？"><a href="#跨域的请求是否被发送出去？" class="headerlink" title="跨域的请求是否被发送出去？"></a>跨域的请求是否被发送出去？</h5><p>跨域请求分为两种，简单请求和预检请求</p>
+<p>如果是简单请求，浏览器会直接发送。<br>如果是预检请求，首先浏览器发送一个预检请求，如果响应成功，才或把真实请求发出。</p>
+<h5 id="什么时候会触发预检请求？"><a href="#什么时候会触发预检请求？" class="headerlink" title="什么时候会触发预检请求？"></a>什么时候会触发预检请求？</h5><p>当请求满足下述任一条件时，即应首先发送预检请求：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">使用了下面任一 HTTP 方法：</span><br><span class="line">PUT</span><br><span class="line">DELETE</span><br><span class="line">CONNECT</span><br><span class="line">OPTIONS</span><br><span class="line">TRACE</span><br><span class="line">PATCH</span><br><span class="line">人为设置了对 CORS 安全的首部字段集合之外的其他首部字段。该集合为：</span><br><span class="line">Accept</span><br><span class="line">Accept-Language</span><br><span class="line">Content-Language</span><br><span class="line">Content-Type (but note the additional requirements below)</span><br><span class="line">DPR</span><br><span class="line">Downlink</span><br><span class="line">Save-Data</span><br><span class="line">Viewport-Width</span><br><span class="line">Width</span><br><span class="line"> Content-Type 的值不属于下列之一:</span><br><span class="line">application/x-www-form-urlencoded</span><br><span class="line">multipart/form-data</span><br><span class="line">text/plain</span><br></pre></td></tr></table></figure>
+<h5 id="如何解决？"><a href="#如何解决？" class="headerlink" title="如何解决？"></a>如何解决？</h5><ul>
+<li>jsonp</li>
+</ul>
+<p>由于在浏览器中我们可以引用外部的js,这样我们通过修改script标签中js的地址，和服务端返回的js文件的内容。就可以从跨域服务器<br>获取数据。<br>优点是兼容性好，缺点是只能发生get请求。</p>
+<ul>
+<li>代理</li>
+</ul>
+<p>我们可以访问同源的服务器，通过服务器发送跨域请求</p>
+<ul>
+<li>cors</li>
+</ul>
+<p>跨域请求分为两种，简单请求和预检请求</p>
+<p>如果是简单请求，在服务端响应头设置<br>Access-Control-Allow-Origin属性。属性值是允许跨域的来源，如果值为 * 则表示允许所有来源。</p>
+<p>如果是预检请求，需要服务端处理预检请求</p>
+<ul>
+<li>websocket</li>
+</ul>
     </div>
   </div>
   
@@ -230,8 +232,8 @@
           <i class="iconfont icon-06tags"></i>标签: 
           
           <span class="span--tag">
-            <a href="/tags/js/">
-              #js
+            <a href="/tags/js-浏览器/">
+              #js 浏览器
             </a>
           </span>
           
@@ -256,13 +258,13 @@
       <div class="nav-pre">
         <i class="iconfont icon-prev"></i>
         上一篇:
-        <a href="/2018/03/28/socket.io简单使用/" target="_self">socket.io简单使用</a>
+        <a href="/2018/11/09/前端调试方法总结/" target="_self">前端调试方法总结</a>
       </div>
     
     
       <div class="nav-next">
         下一篇:
-        <a href="/2018/03/28/async和defer的区别/" target="_self">async和defer的区别</a>
+        <a href="/2018/11/19/tcp三次握手和四次挥手/" target="_self">tcp三次握手和四次挥手</a>
         <i class="iconfont icon-next"></i>
       </div>
     

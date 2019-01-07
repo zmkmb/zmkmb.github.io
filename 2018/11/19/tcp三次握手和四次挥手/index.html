@@ -8,12 +8,12 @@
   
   
   
-  <title>js严格模式 | zmkm</title>
+  <title>tcp三次握手和四次挥手 | zmkm</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="前端,js,">
+    <meta name="keywords" content="网络,网络,">
   
 
   <script>
@@ -176,24 +176,24 @@
 
 <div class="post">
   <h1 class="article-title">
-    <span>js严格模式</span>
+    <span>tcp三次握手和四次挥手</span>
   </h1>
   <div class="article-top-meta">
     <span>
       发布 : 
-      2018-03-28
+      2018-11-19
     </span>
     
       <span>
         分类 : 
-          <a href="/categories/前端/">
-            前端
+          <a href="/categories/网络/">
+            网络
           </a>
       </span>
     
     
       <span>
-        浏览 : <span class="article-timer" data-identity="js严格模式"></span>
+        浏览 : <span class="article-timer" data-identity="tcp三次握手和四次挥手"></span>
       </span>
     
   </div>
@@ -202,19 +202,145 @@
 
   <div class="article-content">
     <div class="markdown-body">
-      <h4 id="有哪些变化"><a href="#有哪些变化" class="headerlink" title="有哪些变化"></a>有哪些变化</h4><p>1.变量必须显式声明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;</span><br><span class="line">//下面变量声明会报错</span><br><span class="line">a = 1</span><br></pre></td></tr></table></figure>
-<p>2.this默认是undefined</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;</span><br><span class="line">function a ()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">a()//非严格模式是window,严格模式是undefinded</span><br></pre></td></tr></table></figure>
-<p>3.严格模式要求函数的参数名唯一</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;</span><br><span class="line">//下面函数声明会报错</span><br><span class="line">function (a,a)&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>4.不可以用with</p>
-<p>5.禁止八进制数字语法</p>
-<p>6.不再支持 arguments.callee</p>
-<p>7.参数的值不会随 arguments 对象的值的改变而变化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function fn1(a)&#123;</span><br><span class="line">  arguments[0] = 2;</span><br><span class="line">  console.log(a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function fn2(a)&#123;</span><br><span class="line"> &quot;use strict&quot;</span><br><span class="line">  arguments[0] = 2;</span><br><span class="line">  console.log(a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn1(1)//2</span><br><span class="line">fn2(1)//1</span><br></pre></td></tr></table></figure></p>
-<p>  。。。</p>
-<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>如果合并脚本，严格模式会导致，一些没用采用严格模式的脚本出错，所以使用时最好用一个函数把代码包裹器来。</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode</a></p>
+      <p>假设客户端为c,服务端为s</p>
+<p>1.客户c端向服务端s发送SYN=1</p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>客户端</th>
+<th>服务端</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>客户端发送</td>
+<td>正常</td>
+<td>未知</td>
+</tr>
+<tr>
+<td>客户端接收</td>
+<td>未知</td>
+<td>未知</td>
+</tr>
+<tr>
+<td>服务端发送</td>
+<td>未知</td>
+<td>未知</td>
+</tr>
+<tr>
+<td>服务端接收</td>
+<td>未知</td>
+<td>未知</td>
+</tr>
+</tbody>
+</table>
+<p>2.服务端s响应SYN=1 ACK=1</p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>客户端</th>
+<th>服务端</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>客户端发送</td>
+<td>正常</td>
+<td>正常</td>
+</tr>
+<tr>
+<td>客户端接收</td>
+<td>未知</td>
+<td>未知</td>
+</tr>
+<tr>
+<td>服务端发送</td>
+<td>未知</td>
+<td>正常</td>
+</tr>
+<tr>
+<td>服务端接收</td>
+<td>未知</td>
+<td>正常</td>
+</tr>
+</tbody>
+</table>
+<p>3.客户c端收到响应后向服务端发送消息ACK=1</p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>客户端</th>
+<th>服务端</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>客户端发送</td>
+<td>正常</td>
+<td>正常</td>
+</tr>
+<tr>
+<td>客户端接收</td>
+<td>正常</td>
+<td>未知</td>
+</tr>
+<tr>
+<td>服务端发送</td>
+<td>正常</td>
+<td>正常</td>
+</tr>
+<tr>
+<td>服务端接收</td>
+<td>正常</td>
+<td>正常</td>
+</tr>
+</tbody>
+</table>
+<p>4.服务端收到消息双方建立连接</p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>客户端</th>
+<th>服务端</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>客户端发送</td>
+<td>正常</td>
+<td>正常</td>
+</tr>
+<tr>
+<td>客户端接收</td>
+<td>正常</td>
+<td>正常</td>
+</tr>
+<tr>
+<td>服务端发送</td>
+<td>正常</td>
+<td>正常</td>
+</tr>
+<tr>
+<td>服务端接收</td>
+<td>正常</td>
+<td>正常</td>
+</tr>
+</tbody>
+</table>
+<h4 id="为什么会有四次挥手"><a href="#为什么会有四次挥手" class="headerlink" title="为什么会有四次挥手"></a>为什么会有四次挥手</h4><ul>
+<li>由于tcp是全双工通信，所以通信双方需要确认对方的数据已经发送完，以及自己最后发送的数据已经被对方接受到。</li>
+</ul>
+<p>假设客户端为c,服务端为s，客户端发送断开请求</p>
+<p>1.客户端向服务端发送FIN=1</p>
+<p>2.服务端收到请求，向服务端发送确认ACK=1</p>
+<p>3.服务端继续发送数据，如果数据发送完，向客户端发送关闭请求FIN=1</p>
+<p>4.客户端收到关闭请求，接收完数据后发送确认ACK=1</p>
+<p>如果第2步服务端发送确认请求时，已经没有数据发往客户端，可以同时发送关闭请求。这时候第2步和第3步可以合为一步。</p>
+<p>我们可以看到建立连接的时候，服务端确认请求，和建立连接请求是合在一起发送给客户端的。所以断开连接一般会比建立连接多一次。</p>
     </div>
   </div>
   
@@ -230,8 +356,8 @@
           <i class="iconfont icon-06tags"></i>标签: 
           
           <span class="span--tag">
-            <a href="/tags/js/">
-              #js
+            <a href="/tags/网络/">
+              #网络
             </a>
           </span>
           
@@ -256,15 +382,9 @@
       <div class="nav-pre">
         <i class="iconfont icon-prev"></i>
         上一篇:
-        <a href="/2018/03/28/socket.io简单使用/" target="_self">socket.io简单使用</a>
+        <a href="/2018/11/10/跨域问题/" target="_self">跨域问题</a>
       </div>
     
-    
-      <div class="nav-next">
-        下一篇:
-        <a href="/2018/03/28/async和defer的区别/" target="_self">async和defer的区别</a>
-        <i class="iconfont icon-next"></i>
-      </div>
     
   </nav>
 

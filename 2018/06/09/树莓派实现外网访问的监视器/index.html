@@ -8,12 +8,12 @@
   
   
   
-  <title>js严格模式 | zmkm</title>
+  <title>树莓派实现外网访问的监视器 | zmkm</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="前端,js,">
+    <meta name="keywords" content="树莓派,">
   
 
   <script>
@@ -176,24 +176,17 @@
 
 <div class="post">
   <h1 class="article-title">
-    <span>js严格模式</span>
+    <span>树莓派实现外网访问的监视器</span>
   </h1>
   <div class="article-top-meta">
     <span>
       发布 : 
-      2018-03-28
+      2018-06-09
     </span>
     
-      <span>
-        分类 : 
-          <a href="/categories/前端/">
-            前端
-          </a>
-      </span>
-    
     
       <span>
-        浏览 : <span class="article-timer" data-identity="js严格模式"></span>
+        浏览 : <span class="article-timer" data-identity="树莓派实现外网访问的监视器"></span>
       </span>
     
   </div>
@@ -202,19 +195,13 @@
 
   <div class="article-content">
     <div class="markdown-body">
-      <h4 id="有哪些变化"><a href="#有哪些变化" class="headerlink" title="有哪些变化"></a>有哪些变化</h4><p>1.变量必须显式声明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;</span><br><span class="line">//下面变量声明会报错</span><br><span class="line">a = 1</span><br></pre></td></tr></table></figure>
-<p>2.this默认是undefined</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;</span><br><span class="line">function a ()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">a()//非严格模式是window,严格模式是undefinded</span><br></pre></td></tr></table></figure>
-<p>3.严格模式要求函数的参数名唯一</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;</span><br><span class="line">//下面函数声明会报错</span><br><span class="line">function (a,a)&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>4.不可以用with</p>
-<p>5.禁止八进制数字语法</p>
-<p>6.不再支持 arguments.callee</p>
-<p>7.参数的值不会随 arguments 对象的值的改变而变化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function fn1(a)&#123;</span><br><span class="line">  arguments[0] = 2;</span><br><span class="line">  console.log(a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function fn2(a)&#123;</span><br><span class="line"> &quot;use strict&quot;</span><br><span class="line">  arguments[0] = 2;</span><br><span class="line">  console.log(a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn1(1)//2</span><br><span class="line">fn2(1)//1</span><br></pre></td></tr></table></figure></p>
-<p>  。。。</p>
-<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>如果合并脚本，严格模式会导致，一些没用采用严格模式的脚本出错，所以使用时最好用一个函数把代码包裹器来。</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode</a></p>
+      <p>sudo nano /etc/motion/motion.conf</p>
+<p>将on改为off<br>stream_localhost off</p>
+<p>这样就可以在局域网的其他设备上访问motion服务</p>
+<p>其他配置还可以修改摄像画面的分辨率等</p>
+<h3 id="启动motion"><a href="#启动motion" class="headerlink" title="启动motion"></a>启动motion</h3><p>sudo motion</p>
+<p>这样就可以在局域网里的设备浏览器里打开<br>树莓派ip:8081,查看监控画面</p>
+<p>如果想要通过外网访问，可以使用frp实现内网穿透</p>
     </div>
   </div>
   
@@ -230,8 +217,8 @@
           <i class="iconfont icon-06tags"></i>标签: 
           
           <span class="span--tag">
-            <a href="/tags/js/">
-              #js
+            <a href="/tags/树莓派/">
+              #树莓派
             </a>
           </span>
           
@@ -256,13 +243,13 @@
       <div class="nav-pre">
         <i class="iconfont icon-prev"></i>
         上一篇:
-        <a href="/2018/03/28/socket.io简单使用/" target="_self">socket.io简单使用</a>
+        <a href="/2018/03/28/js中this的指向/" target="_self">js中this的指向</a>
       </div>
     
     
       <div class="nav-next">
         下一篇:
-        <a href="/2018/03/28/async和defer的区别/" target="_self">async和defer的区别</a>
+        <a href="/2018/06/09/前端常见问题总结/" target="_self">前端常见问题总结</a>
         <i class="iconfont icon-next"></i>
       </div>
     

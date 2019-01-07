@@ -8,12 +8,12 @@
   
   
   
-  <title>js严格模式 | zmkm</title>
+  <title>前端调试方法总结 | zmkm</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="前端,js,">
+    <meta name="keywords" content="前端,前端,">
   
 
   <script>
@@ -176,12 +176,12 @@
 
 <div class="post">
   <h1 class="article-title">
-    <span>js严格模式</span>
+    <span>前端调试方法总结</span>
   </h1>
   <div class="article-top-meta">
     <span>
       发布 : 
-      2018-03-28
+      2018-11-09
     </span>
     
       <span>
@@ -193,7 +193,7 @@
     
     
       <span>
-        浏览 : <span class="article-timer" data-identity="js严格模式"></span>
+        浏览 : <span class="article-timer" data-identity="前端调试方法总结"></span>
       </span>
     
   </div>
@@ -202,19 +202,26 @@
 
   <div class="article-content">
     <div class="markdown-body">
-      <h4 id="有哪些变化"><a href="#有哪些变化" class="headerlink" title="有哪些变化"></a>有哪些变化</h4><p>1.变量必须显式声明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;</span><br><span class="line">//下面变量声明会报错</span><br><span class="line">a = 1</span><br></pre></td></tr></table></figure>
-<p>2.this默认是undefined</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;</span><br><span class="line">function a ()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">a()//非严格模式是window,严格模式是undefinded</span><br></pre></td></tr></table></figure>
-<p>3.严格模式要求函数的参数名唯一</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;</span><br><span class="line">//下面函数声明会报错</span><br><span class="line">function (a,a)&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>4.不可以用with</p>
-<p>5.禁止八进制数字语法</p>
-<p>6.不再支持 arguments.callee</p>
-<p>7.参数的值不会随 arguments 对象的值的改变而变化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function fn1(a)&#123;</span><br><span class="line">  arguments[0] = 2;</span><br><span class="line">  console.log(a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function fn2(a)&#123;</span><br><span class="line"> &quot;use strict&quot;</span><br><span class="line">  arguments[0] = 2;</span><br><span class="line">  console.log(a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn1(1)//2</span><br><span class="line">fn2(1)//1</span><br></pre></td></tr></table></figure></p>
-<p>  。。。</p>
-<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>如果合并脚本，严格模式会导致，一些没用采用严格模式的脚本出错，所以使用时最好用一个函数把代码包裹器来。</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode</a></p>
+      <h4 id="手机移动端页面调试"><a href="#手机移动端页面调试" class="headerlink" title="手机移动端页面调试"></a>手机移动端页面调试</h4><h5 id="微信"><a href="#微信" class="headerlink" title="微信"></a>微信</h5><p>微信公众号，和微信小程序开发，可以使用微信提供的开发者工具<br><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html</a></p>
+<h5 id="安卓系统"><a href="#安卓系统" class="headerlink" title="安卓系统"></a>安卓系统</h5><p>1.安卓手机打开调试模式，使用数据线连接电脑</p>
+<p>2.用手机默认浏览器打开需要调试的网页</p>
+<p>3.电脑上打开谷歌浏览器，在输入框中输入chrome://inspect/#devices</p>
+<p>app内嵌网页调试需要调试的app处于可调试模式。其他和浏览器中调试一样。</p>
+<p>另外这种方式需要科学上网。</p>
+<h5 id="ios系统"><a href="#ios系统" class="headerlink" title="ios系统"></a>ios系统</h5><p>苹果电脑Safari 设置</p>
+<p>打开Safari偏好者设置，选中“高级菜单”，在页面最下方看到“在菜单中显示开发菜单”的复选框，勾选。</p>
+<p>iphone手机设置</p>
+<p>打开iPhone手机设置app 选择Safari，找到高级选项，有JavaScript开关web检查器开关，将两个开关都打开</p>
+<p>1.手机数据线连接电脑</p>
+<p>2.用手机safrai浏览器打开需要调试的网页</p>
+<p>3.苹果电脑上打开safrai浏览器在开发菜单中选择连接的手机</p>
+<p>app内嵌网页调试跟安卓一样，需要app处于可调试模式。</p>
+<h4 id="weinre"><a href="#weinre" class="headerlink" title="weinre"></a>weinre</h4><p><a href="http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html" target="_blank" rel="noopener">http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html</a></p>
+<h5 id="JSCompress"><a href="#JSCompress" class="headerlink" title="JSCompress"></a>JSCompress</h5><p><a href="https://www.jscompress.cn/" target="_blank" rel="noopener">https://www.jscompress.cn/</a></p>
+<h5 id="eruda"><a href="#eruda" class="headerlink" title="eruda"></a>eruda</h5><p><a href="https://github.com/liriliri/eruda" target="_blank" rel="noopener">https://github.com/liriliri/eruda</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;//cdn.jsdelivr.net/npm/eruda&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;eruda.init();&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="vConsole"><a href="#vConsole" class="headerlink" title="vConsole"></a>vConsole</h5><p><a href="https://github.com/Tencent/vConsole" target="_blank" rel="noopener">https://github.com/Tencent/vConsole</a></p>
+<p>eruda和vConsole都是用js实现了一个调试面板。在自己的项目中引用js并初始化，就可以在前端页面查看日志，请求数据等一些信息。甚至可以像在pc浏览器中一样，在console下执行js代码。缺点是不能打断点，也不能实时的修改样式。</p>
     </div>
   </div>
   
@@ -230,8 +237,8 @@
           <i class="iconfont icon-06tags"></i>标签: 
           
           <span class="span--tag">
-            <a href="/tags/js/">
-              #js
+            <a href="/tags/前端/">
+              #前端
             </a>
           </span>
           
@@ -256,13 +263,13 @@
       <div class="nav-pre">
         <i class="iconfont icon-prev"></i>
         上一篇:
-        <a href="/2018/03/28/socket.io简单使用/" target="_self">socket.io简单使用</a>
+        <a href="/2018/10/09/js中带var和不带var的区别/" target="_self">js中带var和不带var的区别</a>
       </div>
     
     
       <div class="nav-next">
         下一篇:
-        <a href="/2018/03/28/async和defer的区别/" target="_self">async和defer的区别</a>
+        <a href="/2018/11/10/跨域问题/" target="_self">跨域问题</a>
         <i class="iconfont icon-next"></i>
       </div>
     

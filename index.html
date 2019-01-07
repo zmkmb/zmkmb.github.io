@@ -166,25 +166,32 @@
   
   <div class="post">
     <h1 class="article-title">
-      <a href="/2018/03/28/async和defer的区别/">
-        <span>async和defer的区别</span>
+      <a href="/2018/11/19/tcp三次握手和四次挥手/">
+        <span>tcp三次握手和四次挥手</span>
       </a>
     </h1>
     <!-- PC端文章信息 -->
     <div class="article-top-meta pc-view">
       <span>
-        发布时间 : 2018-03-28
+        发布时间 : 2018-11-19
       </span>
     </div>
     <!-- 移动端文章信息 -->
     <div class="article-top-meta mobile-view">
       <span>
-        发布 : 2018-03-28
+        发布 : 2018-11-19
       </span>
+      
+        <span>
+        分类 :
+          <a href="/categories/网络/">
+            网络
+          </a>
+        </span>
       
       
         <span>
-          浏览 : <span class="article-timer" data-identity="async和defer的区别"></span>
+          浏览 : <span class="article-timer" data-identity="tcp三次握手和四次挥手"></span>
         </span>
       
     </div>
@@ -192,15 +199,236 @@
     <!-- 文章简介 -->
     <div class="article-content">
       <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        <h2 id="async和defer的区别"><a href="#async和defer的区别" class="headerlink" title="async和defer的区别"></a>async和defer的区别</h2><h5 id="怎么使用？"><a href="#怎么使用？" class="headerlink" title="怎么使用？"></a>怎么使用？</h5><p>async和defer用在script标签当中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src=&apos;1.js&apos;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script defer src=&apos;2.js&apos;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h5 id="有什么用？"><a href="#有什么用？" class="headerlink" title="有什么用？"></a>有什么用？</h5>
+        <h4 id="首先了解一些概念"><a href="#首先了解一些概念" class="headerlink" title="首先了解一些概念"></a>首先了解一些概念</h4><ul>
+<li><p>SYN 表示建立连接</p>
+</li>
+<li><p>FIN 表示关闭连接</p>
+</li>
+<li><p>ACK 表示确认</p>
+</li>
+</ul>
+<h4 id="tcp连接为什么会有三次握手"><a href="#tcp连接为什么会有三次握手" class="headerlink" title="tcp连接为什么会有三次握手"></a>tcp连接为什么会有三次握手</h4><p>通信双方，建立连接时，彼此知道自己和对方的发送和接收处于正常状态，至少需要三次通信。</p>
       </div>
     </div>
     <div class="article-footer">
       <div class="article-meta pull-left">
         <!-- 分类pc端可见 -->
         <span class="pc-view">
+          
+            <i class="iconfont icon-tag"></i>分类:
+            <a href="/categories/网络/">
+              网络
+            </a>
+          </span>
+          
+        <span>
+          
+            <i class="iconfont icon-06tags"></i>标签:
+            
+              <span class="span--tag">
+                <a href="/tags/网络/">
+                  #网络
+                </a>
+              </span>
+            
+                    
+        </span>
+      </div>
+      
+        <div class="article-meta pull-right">
+          <span class="pc-view">
+            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="tcp三次握手和四次挥手"></span>
+          </span>
+        </div>
+      
+    </div>
+  </div>
+  
+  <div class="post">
+    <h1 class="article-title">
+      <a href="/2018/11/10/跨域问题/">
+        <span>跨域问题</span>
+      </a>
+    </h1>
+    <!-- PC端文章信息 -->
+    <div class="article-top-meta pc-view">
+      <span>
+        发布时间 : 2018-11-10
+      </span>
+    </div>
+    <!-- 移动端文章信息 -->
+    <div class="article-top-meta mobile-view">
+      <span>
+        发布 : 2018-11-10
+      </span>
+      
+      
+        <span>
+          浏览 : <span class="article-timer" data-identity="跨域问题"></span>
+        </span>
+      
+    </div>
+    
+    <!-- 文章简介 -->
+    <div class="article-content">
+      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
+        <h5 id="为什么有跨域？"><a href="#为什么有跨域？" class="headerlink" title="为什么有跨域？"></a>为什么有跨域？</h5><p>它是由浏览器的同源策略造成的，这是浏览器的安全机制，如果你定制一个浏览器，不去判断是否跨域，就没有跨域的问题。比如我们在后台使用curl模拟http请求，就不会有跨域的问题。</p>
+<h5 id="哪些属于跨域？"><a href="#哪些属于跨域？" class="headerlink" title="哪些属于跨域？"></a>哪些属于跨域？</h5><p>协议、主机地址以及端口，任何一项不同都会被认为是跨域<br>
+      </p></div>
+    </div>
+    <div class="article-footer">
+      <div class="article-meta pull-left">
+        <!-- 分类pc端可见 -->
+        <span class="pc-view">
+          
+        <span>
+          
+            <i class="iconfont icon-06tags"></i>标签:
+            
+              <span class="span--tag">
+                <a href="/tags/js-浏览器/">
+                  #js 浏览器
+                </a>
+              </span>
+            
+                    
+        </span>
+      </span></div>
+      
+        <div class="article-meta pull-right">
+          <span class="pc-view">
+            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="跨域问题"></span>
+          </span>
+        </div>
+      
+    </div>
+  </div>
+  
+  <div class="post">
+    <h1 class="article-title">
+      <a href="/2018/11/09/前端调试方法总结/">
+        <span>前端调试方法总结</span>
+      </a>
+    </h1>
+    <!-- PC端文章信息 -->
+    <div class="article-top-meta pc-view">
+      <span>
+        发布时间 : 2018-11-09
+      </span>
+    </div>
+    <!-- 移动端文章信息 -->
+    <div class="article-top-meta mobile-view">
+      <span>
+        发布 : 2018-11-09
+      </span>
+      
+        <span>
+        分类 :
+          <a href="/categories/前端/">
+            前端
+          </a>
+        </span>
+      
+      
+        <span>
+          浏览 : <span class="article-timer" data-identity="前端调试方法总结"></span>
+        </span>
+      
+    </div>
+    
+    <!-- 文章简介 -->
+    <div class="article-content">
+      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
+        <h4 id="代理工具"><a href="#代理工具" class="headerlink" title="代理工具"></a>代理工具</h4><p>Charles</p>
+<p>anyproxy</p>
+<p><a href="https://github.com/alibaba/anyproxy" target="_blank" rel="noopener">https://github.com/alibaba/anyproxy</a></p>
+<p>AnyProxy是一个基于NodeJS的，可供插件配置的HTTP/HTTPS代理服务器。我们可以在服务器返回的数据中插入我们的js代码。利用AnyProxy我们可以做一些有趣的事情，比如抓取微信公众号文章的阅读量，和点赞数。</p>
+<p>如果需要查看https协议的内容，需要手机安装相关的证书，并信任。</p>
+      </div>
+    </div>
+    <div class="article-footer">
+      <div class="article-meta pull-left">
+        <!-- 分类pc端可见 -->
+        <span class="pc-view">
+          
+            <i class="iconfont icon-tag"></i>分类:
+            <a href="/categories/前端/">
+              前端
+            </a>
+          </span>
+          
+        <span>
+          
+            <i class="iconfont icon-06tags"></i>标签:
+            
+              <span class="span--tag">
+                <a href="/tags/前端/">
+                  #前端
+                </a>
+              </span>
+            
+                    
+        </span>
+      </div>
+      
+        <div class="article-meta pull-right">
+          <span class="pc-view">
+            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="前端调试方法总结"></span>
+          </span>
+        </div>
+      
+    </div>
+  </div>
+  
+  <div class="post">
+    <h1 class="article-title">
+      <a href="/2018/10/09/js中带var和不带var的区别/">
+        <span>js中带var和不带var的区别</span>
+      </a>
+    </h1>
+    <!-- PC端文章信息 -->
+    <div class="article-top-meta pc-view">
+      <span>
+        发布时间 : 2018-10-09
+      </span>
+    </div>
+    <!-- 移动端文章信息 -->
+    <div class="article-top-meta mobile-view">
+      <span>
+        发布 : 2018-10-09
+      </span>
+      
+        <span>
+        分类 :
+          <a href="/categories/前端/">
+            前端
+          </a>
+        </span>
+      
+      
+        <span>
+          浏览 : <span class="article-timer" data-identity="js中带var和不带var的区别"></span>
+        </span>
+      
+    </div>
+    
+    <!-- 文章简介 -->
+    <div class="article-content">
+      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
+        <p>js中使用var来声明一个变量。</p>
+<p>并且在全局作用域下变量是window的一个属性</p>
+      </div>
+    </div>
+    <div class="article-footer">
+      <div class="article-meta pull-left">
+        <!-- 分类pc端可见 -->
+        <span class="pc-view">
+          
+            <i class="iconfont icon-tag"></i>分类:
+            <a href="/categories/前端/">
+              前端
+            </a>
+          </span>
           
         <span>
           
@@ -214,11 +442,11 @@
             
                     
         </span>
-      </span></div>
+      </div>
       
         <div class="article-meta pull-right">
           <span class="pc-view">
-            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="async和defer的区别"></span>
+            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="js中带var和不带var的区别"></span>
           </span>
         </div>
       
@@ -227,25 +455,25 @@
   
   <div class="post">
     <h1 class="article-title">
-      <a href="/2018/03/28/css1像素问题/">
-        <span>css1像素问题</span>
+      <a href="/2018/07/09/实现网页截图的几种方案/">
+        <span>实现网页截图的几种方案</span>
       </a>
     </h1>
     <!-- PC端文章信息 -->
     <div class="article-top-meta pc-view">
       <span>
-        发布时间 : 2018-03-28
+        发布时间 : 2018-07-09
       </span>
     </div>
     <!-- 移动端文章信息 -->
     <div class="article-top-meta mobile-view">
       <span>
-        发布 : 2018-03-28
+        发布 : 2018-07-09
       </span>
       
       
         <span>
-          浏览 : <span class="article-timer" data-identity="css1像素问题"></span>
+          浏览 : <span class="article-timer" data-identity="实现网页截图的几种方案"></span>
         </span>
       
     </div>
@@ -253,58 +481,10 @@
     <!-- 文章简介 -->
     <div class="article-content">
       <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        <h3 id="为什么会出现1像素问题？"><a href="#为什么会出现1像素问题？" class="headerlink" title="为什么会出现1像素问题？"></a>为什么会出现1像素问题？</h3><p>高分辨率的手机，用多个物理像素表示css中的1px。</p>
-<p>我们打开谷歌浏览器，开启手机模拟模式，选择iphone6,可以看到iphone6的分辨率是375 <em> 667，但是iphone6屏幕的分辨率是750 </em> 1334。<br>
-      </p></div>
-    </div>
-    <div class="article-footer">
-      <div class="article-meta pull-left">
-        <!-- 分类pc端可见 -->
-        <span class="pc-view">
-          
-        <span>
-                    
-        </span>
-      </span></div>
-      
-        <div class="article-meta pull-right">
-          <span class="pc-view">
-            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="css1像素问题"></span>
-          </span>
-        </div>
-      
-    </div>
-  </div>
-  
-  <div class="post">
-    <h1 class="article-title">
-      <a href="/2018/03/28/js严格模式/">
-        <span>js严格模式</span>
-      </a>
-    </h1>
-    <!-- PC端文章信息 -->
-    <div class="article-top-meta pc-view">
-      <span>
-        发布时间 : 2018-03-28
-      </span>
-    </div>
-    <!-- 移动端文章信息 -->
-    <div class="article-top-meta mobile-view">
-      <span>
-        发布 : 2018-03-28
-      </span>
-      
-      
-        <span>
-          浏览 : <span class="article-timer" data-identity="js严格模式"></span>
-        </span>
-      
-    </div>
-    
-    <!-- 文章简介 -->
-    <div class="article-content">
-      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        <h2 id="js严格模式"><a href="#js严格模式" class="headerlink" title="js严格模式"></a>js严格模式</h2><h4 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h4><p>在脚本前加”use strict”;</p>
+        <h3 id="网页截图方案"><a href="#网页截图方案" class="headerlink" title="网页截图方案"></a>网页截图方案</h3><p>项目当中有一个需求是把当前页面截图，并在截图上添加二维码效果</p>
+<p>这里简单介绍一下几种截图的方案，更详细的内容大家可以根据关键词搜索，找到相关介绍</p>
+<h4 id="截图方案分为两种"><a href="#截图方案分为两种" class="headerlink" title="截图方案分为两种"></a>截图方案分为两种</h4><p>一种是前端通过js通过遍历相关dom,生产canvas,并通过canvas生成图片</p>
+<p>另一种是服务端调取一些无头浏览器的截图接口生成截图</p>
       </div>
     </div>
     <div class="article-footer">
@@ -313,13 +493,300 @@
         <span class="pc-view">
           
         <span>
+          
+            <i class="iconfont icon-06tags"></i>标签:
+            
+              <span class="span--tag">
+                <a href="/tags/前端/">
+                  #前端
+                </a>
+              </span>
+            
                     
         </span>
       </span></div>
       
         <div class="article-meta pull-right">
           <span class="pc-view">
-            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="js严格模式"></span>
+            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="实现网页截图的几种方案"></span>
+          </span>
+        </div>
+      
+    </div>
+  </div>
+  
+  <div class="post">
+    <h1 class="article-title">
+      <a href="/2018/06/10/css权重/">
+        <span>css权重</span>
+      </a>
+    </h1>
+    <!-- PC端文章信息 -->
+    <div class="article-top-meta pc-view">
+      <span>
+        发布时间 : 2018-06-10
+      </span>
+    </div>
+    <!-- 移动端文章信息 -->
+    <div class="article-top-meta mobile-view">
+      <span>
+        发布 : 2018-06-10
+      </span>
+      
+        <span>
+        分类 :
+          <a href="/categories/前端/">
+            前端
+          </a>
+        </span>
+      
+      
+        <span>
+          浏览 : <span class="article-timer" data-identity="css权重"></span>
+        </span>
+      
+    </div>
+    
+    <!-- 文章简介 -->
+    <div class="article-content">
+      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
+        
+      </div>
+    </div>
+    <div class="article-footer">
+      <div class="article-meta pull-left">
+        <!-- 分类pc端可见 -->
+        <span class="pc-view">
+          
+            <i class="iconfont icon-tag"></i>分类:
+            <a href="/categories/前端/">
+              前端
+            </a>
+          </span>
+          
+        <span>
+          
+            <i class="iconfont icon-06tags"></i>标签:
+            
+              <span class="span--tag">
+                <a href="/tags/css/">
+                  #css
+                </a>
+              </span>
+            
+                    
+        </span>
+      </div>
+      
+        <div class="article-meta pull-right">
+          <span class="pc-view">
+            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="css权重"></span>
+          </span>
+        </div>
+      
+    </div>
+  </div>
+  
+  <div class="post">
+    <h1 class="article-title">
+      <a href="/2018/06/10/css行高/">
+        <span>css行高</span>
+      </a>
+    </h1>
+    <!-- PC端文章信息 -->
+    <div class="article-top-meta pc-view">
+      <span>
+        发布时间 : 2018-06-10
+      </span>
+    </div>
+    <!-- 移动端文章信息 -->
+    <div class="article-top-meta mobile-view">
+      <span>
+        发布 : 2018-06-10
+      </span>
+      
+        <span>
+        分类 :
+          <a href="/categories/前端/">
+            前端
+          </a>
+        </span>
+      
+      
+        <span>
+          浏览 : <span class="article-timer" data-identity="css行高"></span>
+        </span>
+      
+    </div>
+    
+    <!-- 文章简介 -->
+    <div class="article-content">
+      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
+        <h3 id="line-height-分为有单位和无单位"><a href="#line-height-分为有单位和无单位" class="headerlink" title="line-height 分为有单位和无单位"></a>line-height 分为有单位和无单位</h3><p>line-height 有一个默认值一般为1.2</p>
+<h4 id="有单位值"><a href="#有单位值" class="headerlink" title="有单位值"></a>有单位值</h4><p>px,em,%属于无单位值。这时候子元素的行高继承父元素的行高值，行高值是根据父元素的字体大小计算的结果</p>
+      </div>
+    </div>
+    <div class="article-footer">
+      <div class="article-meta pull-left">
+        <!-- 分类pc端可见 -->
+        <span class="pc-view">
+          
+            <i class="iconfont icon-tag"></i>分类:
+            <a href="/categories/前端/">
+              前端
+            </a>
+          </span>
+          
+        <span>
+          
+            <i class="iconfont icon-06tags"></i>标签:
+            
+              <span class="span--tag">
+                <a href="/tags/css/">
+                  #css
+                </a>
+              </span>
+            
+                    
+        </span>
+      </div>
+      
+        <div class="article-meta pull-right">
+          <span class="pc-view">
+            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="css行高"></span>
+          </span>
+        </div>
+      
+    </div>
+  </div>
+  
+  <div class="post">
+    <h1 class="article-title">
+      <a href="/2018/06/09/前端常见问题总结/">
+        <span>前端常见问题总结</span>
+      </a>
+    </h1>
+    <!-- PC端文章信息 -->
+    <div class="article-top-meta pc-view">
+      <span>
+        发布时间 : 2018-06-09
+      </span>
+    </div>
+    <!-- 移动端文章信息 -->
+    <div class="article-top-meta mobile-view">
+      <span>
+        发布 : 2018-06-09
+      </span>
+      
+        <span>
+        分类 :
+          <a href="/categories/前端/">
+            前端
+          </a>
+        </span>
+      
+      
+        <span>
+          浏览 : <span class="article-timer" data-identity="前端常见问题总结"></span>
+        </span>
+      
+    </div>
+    
+    <!-- 文章简介 -->
+    <div class="article-content">
+      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
+        <h3 id="安卓-4-4-4-ios低版本没有Object-assign-方法"><a href="#安卓-4-4-4-ios低版本没有Object-assign-方法" class="headerlink" title="安卓(4.4.4),ios低版本没有Object.assign()方法"></a>安卓(4.4.4),ios低版本没有Object.assign()方法</h3><h3 id="ios-返回js不执行"><a href="#ios-返回js不执行" class="headerlink" title="ios 返回js不执行"></a>ios 返回js不执行</h3><p>window.onpageshow = function (e) {<br> if (e.persisted) {<br>​       window.location.reload(true)<br> }<br>}</p>
+      </div>
+    </div>
+    <div class="article-footer">
+      <div class="article-meta pull-left">
+        <!-- 分类pc端可见 -->
+        <span class="pc-view">
+          
+            <i class="iconfont icon-tag"></i>分类:
+            <a href="/categories/前端/">
+              前端
+            </a>
+          </span>
+          
+        <span>
+          
+            <i class="iconfont icon-06tags"></i>标签:
+            
+              <span class="span--tag">
+                <a href="/tags/前端/">
+                  #前端
+                </a>
+              </span>
+            
+                    
+        </span>
+      </div>
+      
+        <div class="article-meta pull-right">
+          <span class="pc-view">
+            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="前端常见问题总结"></span>
+          </span>
+        </div>
+      
+    </div>
+  </div>
+  
+  <div class="post">
+    <h1 class="article-title">
+      <a href="/2018/06/09/树莓派实现外网访问的监视器/">
+        <span>树莓派实现外网访问的监视器</span>
+      </a>
+    </h1>
+    <!-- PC端文章信息 -->
+    <div class="article-top-meta pc-view">
+      <span>
+        发布时间 : 2018-06-09
+      </span>
+    </div>
+    <!-- 移动端文章信息 -->
+    <div class="article-top-meta mobile-view">
+      <span>
+        发布 : 2018-06-09
+      </span>
+      
+      
+        <span>
+          浏览 : <span class="article-timer" data-identity="树莓派实现外网访问的监视器"></span>
+        </span>
+      
+    </div>
+    
+    <!-- 文章简介 -->
+    <div class="article-content">
+      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
+        <h3 id="硬件-树莓派-usb摄像头"><a href="#硬件-树莓派-usb摄像头" class="headerlink" title="硬件:树莓派 usb摄像头"></a>硬件:树莓派 usb摄像头</h3><p>这里使用的是一款usb免驱摄像头，插上就可以使用</p>
+<h3 id="安装-motion"><a href="#安装-motion" class="headerlink" title="安装 motion"></a>安装 motion</h3><p>sudo apt-get install motion</p>
+<h3 id="修改motion配置"><a href="#修改motion配置" class="headerlink" title="修改motion配置"></a>修改motion配置</h3>
+      </div>
+    </div>
+    <div class="article-footer">
+      <div class="article-meta pull-left">
+        <!-- 分类pc端可见 -->
+        <span class="pc-view">
+          
+        <span>
+          
+            <i class="iconfont icon-06tags"></i>标签:
+            
+              <span class="span--tag">
+                <a href="/tags/树莓派/">
+                  #树莓派
+                </a>
+              </span>
+            
+                    
+        </span>
+      </span></div>
+      
+        <div class="article-meta pull-right">
+          <span class="pc-view">
+            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="树莓派实现外网访问的监视器"></span>
           </span>
         </div>
       
@@ -344,6 +811,13 @@
         发布 : 2018-03-28
       </span>
       
+        <span>
+        分类 :
+          <a href="/categories/前端/">
+            前端
+          </a>
+        </span>
+      
       
         <span>
           浏览 : <span class="article-timer" data-identity="js中this的指向"></span>
@@ -362,10 +836,25 @@
         <!-- 分类pc端可见 -->
         <span class="pc-view">
           
+            <i class="iconfont icon-tag"></i>分类:
+            <a href="/categories/前端/">
+              前端
+            </a>
+          </span>
+          
         <span>
+          
+            <i class="iconfont icon-06tags"></i>标签:
+            
+              <span class="span--tag">
+                <a href="/tags/js/">
+                  #js
+                </a>
+              </span>
+            
                     
         </span>
-      </span></div>
+      </div>
       
         <div class="article-meta pull-right">
           <span class="pc-view">
@@ -376,59 +865,11 @@
     </div>
   </div>
   
-  <div class="post">
-    <h1 class="article-title">
-      <a href="/2018/03/28/socket.io简单使用/">
-        <span>socket.io简单使用</span>
-      </a>
-    </h1>
-    <!-- PC端文章信息 -->
-    <div class="article-top-meta pc-view">
-      <span>
-        发布时间 : 2018-03-28
-      </span>
-    </div>
-    <!-- 移动端文章信息 -->
-    <div class="article-top-meta mobile-view">
-      <span>
-        发布 : 2018-03-28
-      </span>
-      
-      
-        <span>
-          浏览 : <span class="article-timer" data-identity="socket.io简单使用"></span>
-        </span>
-      
-    </div>
-    
-    <!-- 文章简介 -->
-    <div class="article-content">
-      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        <h2 id="socket-io的简单使用"><a href="#socket-io的简单使用" class="headerlink" title="socket.io的简单使用"></a>socket.io的简单使用</h2><p>socket.io提供了基于事件的实时双向通讯,它封装了websocket。同时在websocket不支持的情况下，使用ajax轮询的方式做兼容。<br>
-      </p></div>
-    </div>
-    <div class="article-footer">
-      <div class="article-meta pull-left">
-        <!-- 分类pc端可见 -->
-        <span class="pc-view">
-          
-        <span>
-                    
-        </span>
-      </span></div>
-      
-        <div class="article-meta pull-right">
-          <span class="pc-view">
-            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="socket.io简单使用"></span>
-          </span>
-        </div>
-      
-    </div>
-  </div>
-  
 
   <nav class="page-navigation">
     
+    
+      <a href="/page/2/">下一页</a>
     
   </nav>
 

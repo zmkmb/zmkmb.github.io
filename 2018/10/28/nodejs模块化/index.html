@@ -8,12 +8,12 @@
   
   
   
-  <title>归档: 2018 | zmkm</title>
+  <title>nodejs模块化 | zmkm</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="Hexo">
+    <meta name="keywords" content="nodejs,nodejs,">
   
 
   <script>
@@ -161,129 +161,251 @@
   })
 </script>
 
-      <div class="container">
-  <div class="timeline">
-  <span class="archive-move-on"></span>
-  <span class="archive-page-counter">
-    
-      <span>Wow! 一共有 17 篇文章</span>
-    
-  </span>
+      
+
+
+
+
+
+
+
+
+<div class="container post-index">
+
   
+
+<div class="post">
+  <h1 class="article-title">
+    <span>nodejs模块化</span>
+  </h1>
+  <div class="article-top-meta">
+    <span>
+      发布 : 
+      2018-10-28
+    </span>
+    
+      <span>
+        分类 : 
+          <a href="/categories/nodejs/">
+            nodejs
+          </a>
+      </span>
+    
+    
+      <span>
+        浏览 : <span class="article-timer" data-identity="nodejs模块化"></span>
+      </span>
+    
+  </div>
+
   
-    <div class="collection-title">
-      <h2>
-        <span>2018</span>
-      </h2>
+
+  <div class="article-content">
+    <div class="markdown-body">
+      <ul>
+<li><p>导入模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a = require(&apos;./a.js&apos;);</span><br><span class="line">a();//&apos;Hello World!&apos;</span><br><span class="line">var b = require(&apos;./b.js&apos;);</span><br><span class="line">b.hello();//&apos;Hello World!&apos;</span><br><span class="line">var c = require(&apos;./c.js&apos;);</span><br><span class="line">c.hello();//&apos;Hello World!&apos;</span><br></pre></td></tr></table></figure>
+<p>推荐使用module.exports导出模块，exports实际上是module.exports的引用。</p>
+</li>
+<li><p>注意</p>
+<p>一个模块中的JS代码仅在模块第一次被使用时执行一次，并在执行过程中初始化模块的导出对象。之后，缓存起来的导出对象被重复利用。</p>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3></li>
+<li><p>a.js 和 b.js 两个文件互相 require 是否会死循环? 双方是否能导出变量? 如何从设计上避免这种问题? </p>
+<p>不会死循环，以从 a.js 启动为例, a.js 还没执行完会返回一个 a.js 的 exports 对象的 未完成的副本 给 b.js 模块。 然后 b.js 完成加载，并将 exports 对象提供给 a.js 模块</p>
+</li>
+<li><p>如果 a.js require 了 b.js, 那么在 b 中定义全局变量 t = 111 能否在 a 中直接打印出来?</p>
+<p>可以，每一个模块相当于被nodejs在外包裹了一个自执行函数，内部声明的变量外部无法访问，但是全局变量可以被访问到</p>
+</li>
+<li><p>如何在不重启 node 进程的情况下热更新一个 js/json 文件? 这个问题本身是否有问题?</p>
+<p>可以清除掉 require.cache 的缓存重新 require(xxx),使用 js 实现热更新很容易碰到 v8 优化之后各地拿到缓存的引用导致热更新 js 没意义</p>
+</li>
+</ul>
     </div>
+  </div>
   
   
   
-  <article class="posts-collapse">
-    <header>
-      <h2>
-        <a href="/2018/06/09/树莓派实现外网访问的监视器/">
-          <span>树莓派实现外网访问的监视器</span>
-        </a>
-      </h2>
-      <div class="post-meta">
-        06-09
-      </div>
-    </header>
-  </article>
+
   
-  
-  <article class="posts-collapse">
-    <header>
-      <h2>
-        <a href="/2018/03/28/js严格模式/">
-          <span>js严格模式</span>
-        </a>
-      </h2>
-      <div class="post-meta">
-        03-28
-      </div>
-    </header>
-  </article>
-  
-  
-  <article class="posts-collapse">
-    <header>
-      <h2>
-        <a href="/2018/03/28/css1像素问题/">
-          <span>css 1像素问题</span>
-        </a>
-      </h2>
-      <div class="post-meta">
-        03-28
-      </div>
-    </header>
-  </article>
-  
-  
-  <article class="posts-collapse">
-    <header>
-      <h2>
-        <a href="/2018/03/28/socket.io简单使用/">
-          <span>socket.io简单使用</span>
-        </a>
-      </h2>
-      <div class="post-meta">
-        03-28
-      </div>
-    </header>
-  </article>
-  
-  
-  <article class="posts-collapse">
-    <header>
-      <h2>
-        <a href="/2018/03/28/js中this的指向/">
-          <span>js中this的指向</span>
-        </a>
-      </h2>
-      <div class="post-meta">
-        03-28
-      </div>
-    </header>
-  </article>
-  
-  
-  <article class="posts-collapse">
-    <header>
-      <h2>
-        <a href="/2018/03/28/async和defer的区别/">
-          <span>async和defer的区别</span>
-        </a>
-      </h2>
-      <div class="post-meta">
-        03-28
-      </div>
-    </header>
-  </article>
-  
-  
-  <article class="posts-collapse">
-    <header>
-      <h2>
-        <a href="/2018/03/09/编译安装nginx/">
-          <span>编译安装nginx</span>
-        </a>
-      </h2>
-      <div class="post-meta">
-        03-09
-      </div>
-    </header>
-  </article>
-  
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+      <span>
+        
+          <i class="iconfont icon-06tags"></i>标签: 
+          
+          <span class="span--tag">
+            <a href="/tags/nodejs/">
+              #nodejs
+            </a>
+          </span>
+          
+        
+      </span>
+    </div>
+    <div class="article-meta pull-right">
+    </div>
+  </div>
 </div>
-  <nav class="page-navigation">
+
+
+  <aside id="sidebar">
+    <p id="sidebar-header"></p>
+    <ol id="sidebar-toc"></ol>
+  </aside>
+  <script async>setTimeout(generateToc, 10);</script>
+
+
+  <nav class="post-navigation">
     
-      <a href="/archives/2018/">上一页</a>
+      <div class="nav-pre">
+        <i class="iconfont icon-prev"></i>
+        上一篇:
+        <a href="/2018/10/09/js中带var和不带var的区别/" target="_self">js中带var和不带var的区别</a>
+      </div>
     
+    
+      <div class="nav-next">
+        下一篇:
+        <a href="/2018/10/28/nodejs调试/" target="_self">nodejs调试</a>
+        <i class="iconfont icon-next"></i>
+      </div>
     
   </nav>
+
+   
+
+  
+    <script defer>
+const valineAPI = (() => {
+  try {
+    AV.init("", "");
+  } catch(error) {}
+  const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+      query.equalTo("identity", identity);
+      query.find().then(results => {
+        resolve(results.length > 0);
+      }, error => reject(error));
+    })
+  }
+
+  const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+      let querys = [];
+      for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+      }
+      query = AV.Query.or.apply(null ,querys);
+    } else {
+      identity = identity || getRealPath();
+      query = new AV.Query("Timer");
+      query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+      query.find()
+      .then(results => resolve(results))
+      .catch(error => reject(error))
+    })
+  }
+
+  const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let Todo = AV.Object.extend('Timer');
+      let todo = new Todo();
+      todo.set("times", 1);
+      todo.set("identity", identity);
+      todo.save().then(res => resolve(true), error => reject(error));
+    })
+  }
+
+  const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let query = new AV.Query('Timer');
+      query.equalTo("identity", identity);
+      query.find().then(todos => {
+        todos.forEach(todo => {
+          todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+      }).then(todos => resolve(true), error => reject(error));
+    })
+  }
+
+  return {
+    isExist,
+    _get,
+    update,
+    create
+  }
+})()
+
+const calcAndWriteTimes = () => {
+  let isPost = true;
+
+  let timerAllDOM = document.querySelectorAll(".article-timer");
+
+  if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+      if(exist) {
+        return valineAPI.update(identity);
+      }
+      return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+  }
+
+  let timerDOMCache = {};
+
+  for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+      timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+      timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+      };
+    }
+  }
+
+  let identities = Object.keys(timerDOMCache);
+  valineAPI._get(identities).then(results => {
+    for(let result of results) {
+      let {identity, times} = result.attributes;
+      timerDOMCache[identity].times = times;
+      timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+      if(timerDOMCache[identity].times){
+        continue;
+      }
+      timerDOMCache[identity].dom.map(item => item.innerText = 1);
+      valineAPI.create(identity);
+    }
+  }).catch(error => console.log(error.message))
+}
+
+if(true){
+  calcAndWriteTimes();
+}
+</script>
+   
+
 </div>
+
 
       <footer>
   <p class="site-info">

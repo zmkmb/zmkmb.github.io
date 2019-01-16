@@ -382,6 +382,162 @@
   
   <div class="post">
     <h1 class="article-title">
+      <a href="/2018/10/28/nodejs调试/">
+        <span>nodejs调试</span>
+      </a>
+    </h1>
+    <!-- PC端文章信息 -->
+    <div class="article-top-meta pc-view">
+      <span>
+        发布时间 : 2018-10-28
+      </span>
+    </div>
+    <!-- 移动端文章信息 -->
+    <div class="article-top-meta mobile-view">
+      <span>
+        发布 : 2018-10-28
+      </span>
+      
+        <span>
+        分类 :
+          <a href="/categories/nodejs/">
+            nodejs
+          </a>
+        </span>
+      
+      
+        <span>
+          浏览 : <span class="article-timer" data-identity="nodejs调试"></span>
+        </span>
+      
+    </div>
+    
+    <!-- 文章简介 -->
+    <div class="article-content">
+      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
+        <h2 id="调试工具"><a href="#调试工具" class="headerlink" title="调试工具"></a>调试工具</h2><ul>
+<li>第三方模块</li>
+</ul>
+<p>npm install node-inspector -g</p>
+<p>npm install devtool -g </p>
+<ul>
+<li>开发工具调试</li>
+</ul>
+      </div>
+    </div>
+    <div class="article-footer">
+      <div class="article-meta pull-left">
+        <!-- 分类pc端可见 -->
+        <span class="pc-view">
+          
+            <i class="iconfont icon-tag"></i>分类:
+            <a href="/categories/nodejs/">
+              nodejs
+            </a>
+          </span>
+          
+        <span>
+          
+            <i class="iconfont icon-06tags"></i>标签:
+            
+              <span class="span--tag">
+                <a href="/tags/nodejs/">
+                  #nodejs
+                </a>
+              </span>
+            
+                    
+        </span>
+      </div>
+      
+        <div class="article-meta pull-right">
+          <span class="pc-view">
+            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="nodejs调试"></span>
+          </span>
+        </div>
+      
+    </div>
+  </div>
+  
+  <div class="post">
+    <h1 class="article-title">
+      <a href="/2018/10/28/nodejs模块化/">
+        <span>nodejs模块化</span>
+      </a>
+    </h1>
+    <!-- PC端文章信息 -->
+    <div class="article-top-meta pc-view">
+      <span>
+        发布时间 : 2018-10-28
+      </span>
+    </div>
+    <!-- 移动端文章信息 -->
+    <div class="article-top-meta mobile-view">
+      <span>
+        发布 : 2018-10-28
+      </span>
+      
+        <span>
+        分类 :
+          <a href="/categories/nodejs/">
+            nodejs
+          </a>
+        </span>
+      
+      
+        <span>
+          浏览 : <span class="article-timer" data-identity="nodejs模块化"></span>
+        </span>
+      
+    </div>
+    
+    <!-- 文章简介 -->
+    <div class="article-content">
+      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
+        <h2 id="nodejs模块化"><a href="#nodejs模块化" class="headerlink" title="nodejs模块化"></a>nodejs模块化</h2><p>  nodejs模块化采用CommonJs规范</p>
+<ul>
+<li><p>导出模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//a.js</span><br><span class="line">module.exports = function () &#123;</span><br><span class="line">    console.log(&apos;Hello World!&apos;);</span><br><span class="line">&#125;;</span><br><span class="line">//b.js</span><br><span class="line">exports.hello = function()&#123;</span><br><span class="line">    console.log(&apos;Hello Workd!&apos;)</span><br><span class="line">&#125;</span><br><span class="line">//c.js</span><br><span class="line">module.exports.hello = function()&#123;</span><br><span class="line">    console.log(&apos;Hello Workd!&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      </div>
+    </div>
+    <div class="article-footer">
+      <div class="article-meta pull-left">
+        <!-- 分类pc端可见 -->
+        <span class="pc-view">
+          
+            <i class="iconfont icon-tag"></i>分类:
+            <a href="/categories/nodejs/">
+              nodejs
+            </a>
+          </span>
+          
+        <span>
+          
+            <i class="iconfont icon-06tags"></i>标签:
+            
+              <span class="span--tag">
+                <a href="/tags/nodejs/">
+                  #nodejs
+                </a>
+              </span>
+            
+                    
+        </span>
+      </div>
+      
+        <div class="article-meta pull-right">
+          <span class="pc-view">
+            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="nodejs模块化"></span>
+          </span>
+        </div>
+      
+    </div>
+  </div>
+  
+  <div class="post">
+    <h1 class="article-title">
       <a href="/2018/10/09/js中带var和不带var的区别/">
         <span>js中带var和不带var的区别</span>
       </a>
@@ -550,7 +706,14 @@
     <!-- 文章简介 -->
     <div class="article-content">
       <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        
+        <h3 id="css-中有不同的选择器，不同的选择器拥有不同的优先级"><a href="#css-中有不同的选择器，不同的选择器拥有不同的优先级" class="headerlink" title="css 中有不同的选择器，不同的选择器拥有不同的优先级"></a>css 中有不同的选择器，不同的选择器拥有不同的优先级</h3><p>!important  Infinity //优先级最高</p>
+<p>行内样式        1000</p>
+<p>id               100</p>
+<p>class |属性|伪类   10</p>
+<p>标签|伪元素        1</p>
+<p>通配符             0</p>
+<p>作用在同一个元素上的选择器，优先级高的生效。 如果优先级相同则靠后的生效</p>
+<p>注意10个标签选择器优先级没有1个class选择器高，选择器之间并不是简单的十进制，有资料说进制为256。</p>
       </div>
     </div>
     <div class="article-footer">
@@ -726,139 +889,6 @@
         <div class="article-meta pull-right">
           <span class="pc-view">
             <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="前端常见问题总结"></span>
-          </span>
-        </div>
-      
-    </div>
-  </div>
-  
-  <div class="post">
-    <h1 class="article-title">
-      <a href="/2018/06/09/树莓派实现外网访问的监视器/">
-        <span>树莓派实现外网访问的监视器</span>
-      </a>
-    </h1>
-    <!-- PC端文章信息 -->
-    <div class="article-top-meta pc-view">
-      <span>
-        发布时间 : 2018-06-09
-      </span>
-    </div>
-    <!-- 移动端文章信息 -->
-    <div class="article-top-meta mobile-view">
-      <span>
-        发布 : 2018-06-09
-      </span>
-      
-      
-        <span>
-          浏览 : <span class="article-timer" data-identity="树莓派实现外网访问的监视器"></span>
-        </span>
-      
-    </div>
-    
-    <!-- 文章简介 -->
-    <div class="article-content">
-      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        <h3 id="硬件-树莓派-usb摄像头"><a href="#硬件-树莓派-usb摄像头" class="headerlink" title="硬件:树莓派 usb摄像头"></a>硬件:树莓派 usb摄像头</h3><p>这里使用的是一款usb免驱摄像头，插上就可以使用</p>
-<h3 id="安装-motion"><a href="#安装-motion" class="headerlink" title="安装 motion"></a>安装 motion</h3><p>sudo apt-get install motion</p>
-<h3 id="修改motion配置"><a href="#修改motion配置" class="headerlink" title="修改motion配置"></a>修改motion配置</h3>
-      </div>
-    </div>
-    <div class="article-footer">
-      <div class="article-meta pull-left">
-        <!-- 分类pc端可见 -->
-        <span class="pc-view">
-          
-        <span>
-          
-            <i class="iconfont icon-06tags"></i>标签:
-            
-              <span class="span--tag">
-                <a href="/tags/树莓派/">
-                  #树莓派
-                </a>
-              </span>
-            
-                    
-        </span>
-      </span></div>
-      
-        <div class="article-meta pull-right">
-          <span class="pc-view">
-            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="树莓派实现外网访问的监视器"></span>
-          </span>
-        </div>
-      
-    </div>
-  </div>
-  
-  <div class="post">
-    <h1 class="article-title">
-      <a href="/2018/03/28/js中this的指向/">
-        <span>js中this的指向</span>
-      </a>
-    </h1>
-    <!-- PC端文章信息 -->
-    <div class="article-top-meta pc-view">
-      <span>
-        发布时间 : 2018-03-28
-      </span>
-    </div>
-    <!-- 移动端文章信息 -->
-    <div class="article-top-meta mobile-view">
-      <span>
-        发布 : 2018-03-28
-      </span>
-      
-        <span>
-        分类 :
-          <a href="/categories/前端/">
-            前端
-          </a>
-        </span>
-      
-      
-        <span>
-          浏览 : <span class="article-timer" data-identity="js中this的指向"></span>
-        </span>
-      
-    </div>
-    
-    <!-- 文章简介 -->
-    <div class="article-content">
-      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        <h2 id="js中this的指向"><a href="#js中this的指向" class="headerlink" title="js中this的指向"></a>js中this的指向</h2><h4 id="除了箭头函数，js中this的指向是在js执行过程中确定的"><a href="#除了箭头函数，js中this的指向是在js执行过程中确定的" class="headerlink" title="除了箭头函数，js中this的指向是在js执行过程中确定的"></a>除了箭头函数，js中this的指向是在js执行过程中确定的</h4><p>一个函数的执行环境不同那它内部this的指向也不同。<br>
-      </p></div>
-    </div>
-    <div class="article-footer">
-      <div class="article-meta pull-left">
-        <!-- 分类pc端可见 -->
-        <span class="pc-view">
-          
-            <i class="iconfont icon-tag"></i>分类:
-            <a href="/categories/前端/">
-              前端
-            </a>
-          </span>
-          
-        <span>
-          
-            <i class="iconfont icon-06tags"></i>标签:
-            
-              <span class="span--tag">
-                <a href="/tags/js/">
-                  #js
-                </a>
-              </span>
-            
-                    
-        </span>
-      </div>
-      
-        <div class="article-meta pull-right">
-          <span class="pc-view">
-            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="js中this的指向"></span>
           </span>
         </div>
       

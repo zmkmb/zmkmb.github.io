@@ -382,8 +382,8 @@
   
   <div class="post">
     <h1 class="article-title">
-      <a href="/2018/10/28/nodejs调试/">
-        <span>nodejs调试</span>
+      <a href="/2018/10/28/防抖和节流/">
+        <span>防抖和节流</span>
       </a>
     </h1>
     <!-- PC端文章信息 -->
@@ -400,14 +400,14 @@
       
         <span>
         分类 :
-          <a href="/categories/nodejs/">
-            nodejs
+          <a href="/categories/js/">
+            js
           </a>
         </span>
       
       
         <span>
-          浏览 : <span class="article-timer" data-identity="nodejs调试"></span>
+          浏览 : <span class="article-timer" data-identity="防抖和节流"></span>
         </span>
       
     </div>
@@ -415,14 +415,11 @@
     <!-- 文章简介 -->
     <div class="article-content">
       <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        <h2 id="调试工具"><a href="#调试工具" class="headerlink" title="调试工具"></a>调试工具</h2><ul>
-<li>第三方模块</li>
+        <h2 id="防抖和节流"><a href="#防抖和节流" class="headerlink" title="防抖和节流"></a>防抖和节流</h2><ul>
+<li>什么是防抖？</li>
 </ul>
-<p>npm install node-inspector -g</p>
-<p>npm install devtool -g </p>
-<ul>
-<li>开发工具调试</li>
-</ul>
+<p>只看字面意思很难让人理解，至少我刚接触到这个名词的时候会把防抖和节流混淆。</p>
+<p>最好的理解方式是把它关联到一个应用场景中。举个例子，有一个需求，在搜索框里输入文字时，实时的向后台请求数据，展示在内容区。我们知道当用户输入时会频繁的触发输入事件，这时短时间大量的请求会给后台造成很大压力，而且有一部分请求是没有必要的。我们可以对触发的请求做一个延时，当用户停止触发输入事件后一段时间，才去发送请求。</p>
       </div>
     </div>
     <div class="article-footer">
@@ -431,8 +428,8 @@
         <span class="pc-view">
           
             <i class="iconfont icon-tag"></i>分类:
-            <a href="/categories/nodejs/">
-              nodejs
+            <a href="/categories/js/">
+              js
             </a>
           </span>
           
@@ -441,8 +438,8 @@
             <i class="iconfont icon-06tags"></i>标签:
             
               <span class="span--tag">
-                <a href="/tags/nodejs/">
-                  #nodejs
+                <a href="/tags/js/">
+                  #js
                 </a>
               </span>
             
@@ -452,7 +449,7 @@
       
         <div class="article-meta pull-right">
           <span class="pc-view">
-            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="nodejs调试"></span>
+            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="防抖和节流"></span>
           </span>
         </div>
       
@@ -530,6 +527,150 @@
         <div class="article-meta pull-right">
           <span class="pc-view">
             <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="nodejs模块化"></span>
+          </span>
+        </div>
+      
+    </div>
+  </div>
+  
+  <div class="post">
+    <h1 class="article-title">
+      <a href="/2018/10/28/nodejs调试/">
+        <span>nodejs调试</span>
+      </a>
+    </h1>
+    <!-- PC端文章信息 -->
+    <div class="article-top-meta pc-view">
+      <span>
+        发布时间 : 2018-10-28
+      </span>
+    </div>
+    <!-- 移动端文章信息 -->
+    <div class="article-top-meta mobile-view">
+      <span>
+        发布 : 2018-10-28
+      </span>
+      
+        <span>
+        分类 :
+          <a href="/categories/nodejs/">
+            nodejs
+          </a>
+        </span>
+      
+      
+        <span>
+          浏览 : <span class="article-timer" data-identity="nodejs调试"></span>
+        </span>
+      
+    </div>
+    
+    <!-- 文章简介 -->
+    <div class="article-content">
+      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
+        
+      </div>
+    </div>
+    <div class="article-footer">
+      <div class="article-meta pull-left">
+        <!-- 分类pc端可见 -->
+        <span class="pc-view">
+          
+            <i class="iconfont icon-tag"></i>分类:
+            <a href="/categories/nodejs/">
+              nodejs
+            </a>
+          </span>
+          
+        <span>
+          
+            <i class="iconfont icon-06tags"></i>标签:
+            
+              <span class="span--tag">
+                <a href="/tags/nodejs/">
+                  #nodejs
+                </a>
+              </span>
+            
+                    
+        </span>
+      </div>
+      
+        <div class="article-meta pull-right">
+          <span class="pc-view">
+            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="nodejs调试"></span>
+          </span>
+        </div>
+      
+    </div>
+  </div>
+  
+  <div class="post">
+    <h1 class="article-title">
+      <a href="/2018/10/28/从输入url到浏览器显示页面发生了什么/">
+        <span>从输入URL到浏览器显示页面发生了什么</span>
+      </a>
+    </h1>
+    <!-- PC端文章信息 -->
+    <div class="article-top-meta pc-view">
+      <span>
+        发布时间 : 2018-10-28
+      </span>
+    </div>
+    <!-- 移动端文章信息 -->
+    <div class="article-top-meta mobile-view">
+      <span>
+        发布 : 2018-10-28
+      </span>
+      
+        <span>
+        分类 :
+          <a href="/categories/浏览器/">
+            浏览器
+          </a>
+        </span>
+      
+      
+        <span>
+          浏览 : <span class="article-timer" data-identity="从输入url到浏览器显示页面发生了什么"></span>
+        </span>
+      
+    </div>
+    
+    <!-- 文章简介 -->
+    <div class="article-content">
+      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
+        
+      </div>
+    </div>
+    <div class="article-footer">
+      <div class="article-meta pull-left">
+        <!-- 分类pc端可见 -->
+        <span class="pc-view">
+          
+            <i class="iconfont icon-tag"></i>分类:
+            <a href="/categories/浏览器/">
+              浏览器
+            </a>
+          </span>
+          
+        <span>
+          
+            <i class="iconfont icon-06tags"></i>标签:
+            
+              <span class="span--tag">
+                <a href="/tags/前端/">
+                  #前端
+                </a>
+              </span>
+            
+                    
+        </span>
+      </div>
+      
+        <div class="article-meta pull-right">
+          <span class="pc-view">
+            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="从输入url到浏览器显示页面发生了什么"></span>
           </span>
         </div>
       
@@ -744,151 +885,6 @@
         <div class="article-meta pull-right">
           <span class="pc-view">
             <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="css权重"></span>
-          </span>
-        </div>
-      
-    </div>
-  </div>
-  
-  <div class="post">
-    <h1 class="article-title">
-      <a href="/2018/06/10/css行高/">
-        <span>css行高</span>
-      </a>
-    </h1>
-    <!-- PC端文章信息 -->
-    <div class="article-top-meta pc-view">
-      <span>
-        发布时间 : 2018-06-10
-      </span>
-    </div>
-    <!-- 移动端文章信息 -->
-    <div class="article-top-meta mobile-view">
-      <span>
-        发布 : 2018-06-10
-      </span>
-      
-        <span>
-        分类 :
-          <a href="/categories/前端/">
-            前端
-          </a>
-        </span>
-      
-      
-        <span>
-          浏览 : <span class="article-timer" data-identity="css行高"></span>
-        </span>
-      
-    </div>
-    
-    <!-- 文章简介 -->
-    <div class="article-content">
-      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        <h3 id="line-height-分为有单位和无单位"><a href="#line-height-分为有单位和无单位" class="headerlink" title="line-height 分为有单位和无单位"></a>line-height 分为有单位和无单位</h3><p>line-height 有一个默认值一般为1.2</p>
-<h4 id="有单位值"><a href="#有单位值" class="headerlink" title="有单位值"></a>有单位值</h4><p>px,em,%属于无单位值。这时候子元素的行高继承父元素的行高值，行高值是根据父元素的字体大小计算的结果</p>
-      </div>
-    </div>
-    <div class="article-footer">
-      <div class="article-meta pull-left">
-        <!-- 分类pc端可见 -->
-        <span class="pc-view">
-          
-            <i class="iconfont icon-tag"></i>分类:
-            <a href="/categories/前端/">
-              前端
-            </a>
-          </span>
-          
-        <span>
-          
-            <i class="iconfont icon-06tags"></i>标签:
-            
-              <span class="span--tag">
-                <a href="/tags/css/">
-                  #css
-                </a>
-              </span>
-            
-                    
-        </span>
-      </div>
-      
-        <div class="article-meta pull-right">
-          <span class="pc-view">
-            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="css行高"></span>
-          </span>
-        </div>
-      
-    </div>
-  </div>
-  
-  <div class="post">
-    <h1 class="article-title">
-      <a href="/2018/06/09/前端常见问题总结/">
-        <span>前端常见问题总结</span>
-      </a>
-    </h1>
-    <!-- PC端文章信息 -->
-    <div class="article-top-meta pc-view">
-      <span>
-        发布时间 : 2018-06-09
-      </span>
-    </div>
-    <!-- 移动端文章信息 -->
-    <div class="article-top-meta mobile-view">
-      <span>
-        发布 : 2018-06-09
-      </span>
-      
-        <span>
-        分类 :
-          <a href="/categories/前端/">
-            前端
-          </a>
-        </span>
-      
-      
-        <span>
-          浏览 : <span class="article-timer" data-identity="前端常见问题总结"></span>
-        </span>
-      
-    </div>
-    
-    <!-- 文章简介 -->
-    <div class="article-content">
-      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        <h3 id="安卓-4-4-4-ios低版本没有Object-assign-方法"><a href="#安卓-4-4-4-ios低版本没有Object-assign-方法" class="headerlink" title="安卓(4.4.4),ios低版本没有Object.assign()方法"></a>安卓(4.4.4),ios低版本没有Object.assign()方法</h3><h3 id="ios-返回js不执行"><a href="#ios-返回js不执行" class="headerlink" title="ios 返回js不执行"></a>ios 返回js不执行</h3><p>window.onpageshow = function (e) {<br> if (e.persisted) {<br>​       window.location.reload(true)<br> }<br>}</p>
-      </div>
-    </div>
-    <div class="article-footer">
-      <div class="article-meta pull-left">
-        <!-- 分类pc端可见 -->
-        <span class="pc-view">
-          
-            <i class="iconfont icon-tag"></i>分类:
-            <a href="/categories/前端/">
-              前端
-            </a>
-          </span>
-          
-        <span>
-          
-            <i class="iconfont icon-06tags"></i>标签:
-            
-              <span class="span--tag">
-                <a href="/tags/前端/">
-                  #前端
-                </a>
-              </span>
-            
-                    
-        </span>
-      </div>
-      
-        <div class="article-meta pull-right">
-          <span class="pc-view">
-            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="前端常见问题总结"></span>
           </span>
         </div>
       

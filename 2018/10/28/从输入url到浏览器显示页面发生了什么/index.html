@@ -8,12 +8,12 @@
   
   
   
-  <title>归档: 2018/6 | zmkm</title>
+  <title>从输入URL到浏览器显示页面发生了什么 | zmkm</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="Hexo">
+    <meta name="keywords" content="浏览器,前端,">
   
 
   <script>
@@ -161,85 +161,250 @@
   })
 </script>
 
-      <div class="container">
-  <div class="timeline">
-  <span class="archive-move-on"></span>
-  <span class="archive-page-counter">
-    
-      <span>Wow! 一共有 19 篇文章</span>
-    
-  </span>
+      
+
+
+
+
+
+
+
+
+<div class="container post-index">
+
   
+
+<div class="post">
+  <h1 class="article-title">
+    <span>从输入URL到浏览器显示页面发生了什么</span>
+  </h1>
+  <div class="article-top-meta">
+    <span>
+      发布 : 
+      2018-10-28
+    </span>
+    
+      <span>
+        分类 : 
+          <a href="/categories/浏览器/">
+            浏览器
+          </a>
+      </span>
+    
+    
+      <span>
+        浏览 : <span class="article-timer" data-identity="从输入url到浏览器显示页面发生了什么"></span>
+      </span>
+    
+  </div>
+
   
-    <div class="collection-title">
-      <h2>
-        <span>2018</span>
-      </h2>
+
+  <div class="article-content">
+    <div class="markdown-body">
+      <h5 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h5><p>首先浏览器会取缓存，如果没有，则取操作系统的hosts文件里域名对应的ip地址。</p>
+<p>如果hosts里也找不到，浏览器就会请求dns获取对应的ip。</p>
+<p>有时候我们会发现，相同的域名对应的ip有多个。这是因为对于一些访问量大的网站，应用部署在不同的服务器上的。这是候设置dns轮询，或者采用智能dns,返回就近的ip地址。可以把请求相对均匀的分布到不同的服务器上。</p>
+<p>有时候我们会手动修改操作系统的hosts文件，去访问一些404的网站。不过现在这种方式应该也不能用了。</p>
+<h5 id="建立tcp连接"><a href="#建立tcp连接" class="headerlink" title="建立tcp连接"></a>建立tcp连接</h5><p>http处于网络协议的应用层，并且基于tcp。<br>浏览器根据url生成一个http请求。向服务器发出请求时首先会建立tcp连接。<br>除了http协议，现在很多网站都采用https协议，相对于http来说会更复杂一点。<br>当然未来还有http2协议。</p>
+<p><a href="">tcp三次握手四次挥手</a></p>
+<h5 id="服务器接收请求并响应"><a href="#服务器接收请求并响应" class="headerlink" title="服务器接收请求并响应"></a>服务器接收请求并响应</h5><p>服务器端一般会采用nginx,做负载均衡。</p>
+<p>nginx接收到请求，根据配置文件，把请求转发到不同的后端服务上去。</p>
+<p>后端服务收到请求，做一些运算或io操作，拿到数据，然后返回数据。</p>
+<h5 id="浏览器渲染"><a href="#浏览器渲染" class="headerlink" title="浏览器渲染"></a>浏览器渲染</h5><p>1.浏览器将HTML解析成一个DOM树</p>
+<p>2.将CSS解析成 CSS Rule Tree </p>
+<p>3.根据DOM树和CSSOM来构造 Rendering Tree</p>
+<p>4.遍历render树，并使用UI后端层绘制每个节点</p>
+<p>前端开发中这一部分我们关注的是</p>
+<p><a href="">减少重绘(redraw)和重排(reflow)</a></p>
+<p><a href="">资源加载对页面的渲染的影响</a></p>
+
     </div>
+  </div>
   
   
   
-  <article class="posts-collapse">
-    <header>
-      <h2>
-        <a href="/2018/06/10/css权重/">
-          <span>css权重</span>
-        </a>
-      </h2>
-      <div class="post-meta">
-        06-10
-      </div>
-    </header>
-  </article>
+
   
-  
-  <article class="posts-collapse">
-    <header>
-      <h2>
-        <a href="/2018/06/10/css行高/">
-          <span>css行高</span>
-        </a>
-      </h2>
-      <div class="post-meta">
-        06-10
-      </div>
-    </header>
-  </article>
-  
-  
-  <article class="posts-collapse">
-    <header>
-      <h2>
-        <a href="/2018/06/09/前端常见问题总结/">
-          <span>前端常见问题总结</span>
-        </a>
-      </h2>
-      <div class="post-meta">
-        06-09
-      </div>
-    </header>
-  </article>
-  
-  
-  <article class="posts-collapse">
-    <header>
-      <h2>
-        <a href="/2018/06/09/树莓派实现外网访问的监视器/">
-          <span>树莓派实现外网访问的监视器</span>
-        </a>
-      </h2>
-      <div class="post-meta">
-        06-09
-      </div>
-    </header>
-  </article>
-  
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+      <span>
+        
+          <i class="iconfont icon-06tags"></i>标签: 
+          
+          <span class="span--tag">
+            <a href="/tags/前端/">
+              #前端
+            </a>
+          </span>
+          
+        
+      </span>
+    </div>
+    <div class="article-meta pull-right">
+    </div>
+  </div>
 </div>
-  <nav class="page-navigation">
+
+
+  <aside id="sidebar">
+    <p id="sidebar-header"></p>
+    <ol id="sidebar-toc"></ol>
+  </aside>
+  <script async>setTimeout(generateToc, 10);</script>
+
+
+  <nav class="post-navigation">
     
+      <div class="nav-pre">
+        <i class="iconfont icon-prev"></i>
+        上一篇:
+        <a href="/2018/10/09/js中带var和不带var的区别/" target="_self">js中带var和不带var的区别</a>
+      </div>
+    
+    
+      <div class="nav-next">
+        下一篇:
+        <a href="/2018/10/28/nodejs调试/" target="_self">nodejs调试</a>
+        <i class="iconfont icon-next"></i>
+      </div>
     
   </nav>
+
+   
+
+  
+    <script defer>
+const valineAPI = (() => {
+  try {
+    AV.init("", "");
+  } catch(error) {}
+  const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+      query.equalTo("identity", identity);
+      query.find().then(results => {
+        resolve(results.length > 0);
+      }, error => reject(error));
+    })
+  }
+
+  const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+      let querys = [];
+      for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+      }
+      query = AV.Query.or.apply(null ,querys);
+    } else {
+      identity = identity || getRealPath();
+      query = new AV.Query("Timer");
+      query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+      query.find()
+      .then(results => resolve(results))
+      .catch(error => reject(error))
+    })
+  }
+
+  const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let Todo = AV.Object.extend('Timer');
+      let todo = new Todo();
+      todo.set("times", 1);
+      todo.set("identity", identity);
+      todo.save().then(res => resolve(true), error => reject(error));
+    })
+  }
+
+  const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let query = new AV.Query('Timer');
+      query.equalTo("identity", identity);
+      query.find().then(todos => {
+        todos.forEach(todo => {
+          todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+      }).then(todos => resolve(true), error => reject(error));
+    })
+  }
+
+  return {
+    isExist,
+    _get,
+    update,
+    create
+  }
+})()
+
+const calcAndWriteTimes = () => {
+  let isPost = true;
+
+  let timerAllDOM = document.querySelectorAll(".article-timer");
+
+  if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+      if(exist) {
+        return valineAPI.update(identity);
+      }
+      return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+  }
+
+  let timerDOMCache = {};
+
+  for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+      timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+      timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+      };
+    }
+  }
+
+  let identities = Object.keys(timerDOMCache);
+  valineAPI._get(identities).then(results => {
+    for(let result of results) {
+      let {identity, times} = result.attributes;
+      timerDOMCache[identity].times = times;
+      timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+      if(timerDOMCache[identity].times){
+        continue;
+      }
+      timerDOMCache[identity].dom.map(item => item.innerText = 1);
+      valineAPI.create(identity);
+    }
+  }).catch(error => console.log(error.message))
+}
+
+if(true){
+  calcAndWriteTimes();
+}
+</script>
+   
+
 </div>
+
 
       <footer>
   <p class="site-info">

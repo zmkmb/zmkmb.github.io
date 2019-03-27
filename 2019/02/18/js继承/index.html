@@ -8,7 +8,7 @@
   
   
   
-  <title>async和defer的区别 | zmkm</title>
+  <title>js继承 | zmkm</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -176,12 +176,12 @@
 
 <div class="post">
   <h1 class="article-title">
-    <span>async和defer的区别</span>
+    <span>js继承</span>
   </h1>
   <div class="article-top-meta">
     <span>
       发布 : 
-      2018-03-28
+      2019-02-18
     </span>
     
       <span>
@@ -193,7 +193,7 @@
     
     
       <span>
-        浏览 : <span class="article-timer" data-identity="async和defer的区别"></span>
+        浏览 : <span class="article-timer" data-identity="js继承"></span>
       </span>
     
   </div>
@@ -202,18 +202,12 @@
 
   <div class="article-content">
     <div class="markdown-body">
-      <p>正常情况下浏览器在解析到script标签时，渲染进程会停止解析html,而去先加载,解析并执行js。原因是js可能改变DOM结构。</p>
-<p>如果script标签上加上async或defer属性，浏览器就会异步的加载和执行js代码，而不会阻塞渲染。</p>
-<h5 id="有什么区别？"><a href="#有什么区别？" class="headerlink" title="有什么区别？"></a>有什么区别？</h5><p>async和defer,都是异步加载js,区别在于js下载完成后何时执行</p>
-<ul>
-<li>async</li>
-</ul>
-<p>js加载完就执行，js执行顺序不固定</p>
-<ul>
-<li>defer</li>
-</ul>
-<p>js执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。js按照加载顺序执行。</p>
-<h5 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h5><p>为了防止js加载阻塞页面渲染。<br>实践中，js脚本一般会放在 之前。</p>
+      <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//父类</span><br><span class="line">function SuperType()&#123;</span><br><span class="line">	this.name = &apos;super&apos;;</span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.sayName = function()&#123;</span><br><span class="line">    console.log(this.name);</span><br><span class="line">&#125;</span><br><span class="line">//子类</span><br><span class="line">function SubType()&#123;</span><br><span class="line">    this.name = &apos;sub&apos;;</span><br><span class="line">&#125;</span><br><span class="line">SubType.prototype = new SuperType();</span><br></pre></td></tr></table></figure>
+<h4 id="构造函数继承"><a href="#构造函数继承" class="headerlink" title="构造函数继承"></a>构造函数继承</h4><p>基本实现是让父类在子类当中执行一遍，把this换成子类实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//父类</span><br><span class="line">function SuperType()&#123;</span><br><span class="line">	this.name = &apos;super&apos;;</span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.sayName = function()&#123;</span><br><span class="line">    console.log(this.name);</span><br><span class="line">&#125;</span><br><span class="line">//子类</span><br><span class="line">function SubType()&#123;</span><br><span class="line">    this.name = &apos;sub&apos;;</span><br><span class="line">    SuperType.call(this);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h4><p>将原型链继承和借用构造函数继承组合到一起</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//父类</span><br><span class="line">function SuperType()&#123;</span><br><span class="line">	this.name = &apos;super&apos;;</span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.sayName = function()&#123;</span><br><span class="line">    console.log(this.name);</span><br><span class="line">&#125;</span><br><span class="line">//子类</span><br><span class="line">function SubType()&#123;</span><br><span class="line">    this.name = &apos;sub&apos;;</span><br><span class="line">    SuperType.call(this);</span><br><span class="line">&#125;</span><br><span class="line">SubType.prototype = new SuperType();</span><br><span class="line">SubType.prototype.constructor = SubType;//从新设置原型对象上构造函数属性</span><br></pre></td></tr></table></figure>
+<h4 id="寄生组合式继承"><a href="#寄生组合式继承" class="headerlink" title="寄生组合式继承"></a>寄生组合式继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//父类</span><br><span class="line">function SuperType()&#123;</span><br><span class="line">	this.name = &apos;super&apos;;</span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.sayName = function()&#123;</span><br><span class="line">    console.log(this.name);</span><br><span class="line">&#125;</span><br><span class="line">//子类</span><br><span class="line">function SubType()&#123;</span><br><span class="line">    this.name = &apos;sub&apos;;</span><br><span class="line">    SuperType.call(this);</span><br><span class="line">&#125;</span><br><span class="line">var prototype = Object(SuperType.prototype);</span><br><span class="line">prototype.constructor = SubType;</span><br><span class="line">SubType.prototype = prototype;</span><br></pre></td></tr></table></figure>
     </div>
   </div>
   
@@ -255,15 +249,9 @@
       <div class="nav-pre">
         <i class="iconfont icon-prev"></i>
         上一篇:
-        <a href="/2018/03/28/js中this的指向/" target="_self">js中this的指向</a>
+        <a href="/2018/11/19/tcp三次握手和四次挥手/" target="_self">tcp三次握手和四次挥手</a>
       </div>
     
-    
-      <div class="nav-next">
-        下一篇:
-        <a href="/2018/03/28/js中instanceof用法/" target="_self">js中instanceof用法</a>
-        <i class="iconfont icon-next"></i>
-      </div>
     
   </nav>
 

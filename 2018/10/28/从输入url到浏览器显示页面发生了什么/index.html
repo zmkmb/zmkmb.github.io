@@ -202,9 +202,7 @@
 
   <div class="article-content">
     <div class="markdown-body">
-      <h5 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h5><p>首先浏览器会取缓存，如果没有，则取操作系统的hosts文件里域名对应的ip地址。</p>
-<p>如果hosts里也找不到，浏览器就会请求dns获取对应的ip。</p>
-<p>有时候我们会发现，相同的域名对应的ip有多个。这是因为对于一些访问量大的网站，应用部署在不同的服务器上的。这是候设置dns轮询，或者采用智能dns,返回就近的ip地址。可以把请求相对均匀的分布到不同的服务器上。</p>
+      <p>有时候我们会发现，相同的域名对应的ip有多个。这是因为对于一些访问量大的网站，应用部署在不同的服务器上的。这是候设置dns轮询，或者采用智能dns,返回就近的ip地址。可以把请求相对均匀的分布到不同的服务器上。</p>
 <p>有时候我们会手动修改操作系统的hosts文件，去访问一些404的网站。不过现在这种方式应该也不能用了。</p>
 <h5 id="建立tcp连接"><a href="#建立tcp连接" class="headerlink" title="建立tcp连接"></a>建立tcp连接</h5><p>http处于网络协议的应用层，并且基于tcp。<br>浏览器根据url生成一个http请求。向服务器发出请求时首先会建立tcp连接。<br>除了http协议，现在很多网站都采用https协议，相对于http来说会更复杂一点。<br>当然未来还有http2协议。</p>
 <p><a href="">tcp三次握手四次挥手</a></p>
@@ -218,7 +216,6 @@
 <p>前端开发中这一部分我们关注的是</p>
 <p><a href="">减少重绘(redraw)和重排(reflow)</a></p>
 <p><a href="">资源加载对页面的渲染的影响</a></p>
-
     </div>
   </div>
   
@@ -266,7 +263,7 @@
     
       <div class="nav-next">
         下一篇:
-        <a href="/2018/10/28/nodejs调试/" target="_self">nodejs调试</a>
+        <a href="/2018/10/28/防抖和节流/" target="_self">防抖和节流</a>
         <i class="iconfont icon-next"></i>
       </div>
     

@@ -166,6 +166,78 @@
   
   <div class="post">
     <h1 class="article-title">
+      <a href="/2019/02/18/js继承/">
+        <span>js继承</span>
+      </a>
+    </h1>
+    <!-- PC端文章信息 -->
+    <div class="article-top-meta pc-view">
+      <span>
+        发布时间 : 2019-02-18
+      </span>
+    </div>
+    <!-- 移动端文章信息 -->
+    <div class="article-top-meta mobile-view">
+      <span>
+        发布 : 2019-02-18
+      </span>
+      
+        <span>
+        分类 :
+          <a href="/categories/前端/">
+            前端
+          </a>
+        </span>
+      
+      
+        <span>
+          浏览 : <span class="article-timer" data-identity="js继承"></span>
+        </span>
+      
+    </div>
+    
+    <!-- 文章简介 -->
+    <div class="article-content">
+      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
+        <h2 id="js继承"><a href="#js继承" class="headerlink" title="js继承"></a>js继承</h2><h4 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h4><p>基本思想就是，把子类的原型设置成父类的实例，这样子类就可以访问到父类原型上的方法，和属性。</p>
+      </div>
+    </div>
+    <div class="article-footer">
+      <div class="article-meta pull-left">
+        <!-- 分类pc端可见 -->
+        <span class="pc-view">
+          
+            <i class="iconfont icon-tag"></i>分类:
+            <a href="/categories/前端/">
+              前端
+            </a>
+          </span>
+          
+        <span>
+          
+            <i class="iconfont icon-06tags"></i>标签:
+            
+              <span class="span--tag">
+                <a href="/tags/js/">
+                  #js
+                </a>
+              </span>
+            
+                    
+        </span>
+      </div>
+      
+        <div class="article-meta pull-right">
+          <span class="pc-view">
+            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="js继承"></span>
+          </span>
+        </div>
+      
+    </div>
+  </div>
+  
+  <div class="post">
+    <h1 class="article-title">
       <a href="/2018/11/19/tcp三次握手和四次挥手/">
         <span>tcp三次握手和四次挥手</span>
       </a>
@@ -382,82 +454,6 @@
   
   <div class="post">
     <h1 class="article-title">
-      <a href="/2018/10/28/防抖和节流/">
-        <span>防抖和节流</span>
-      </a>
-    </h1>
-    <!-- PC端文章信息 -->
-    <div class="article-top-meta pc-view">
-      <span>
-        发布时间 : 2018-10-28
-      </span>
-    </div>
-    <!-- 移动端文章信息 -->
-    <div class="article-top-meta mobile-view">
-      <span>
-        发布 : 2018-10-28
-      </span>
-      
-        <span>
-        分类 :
-          <a href="/categories/js/">
-            js
-          </a>
-        </span>
-      
-      
-        <span>
-          浏览 : <span class="article-timer" data-identity="防抖和节流"></span>
-        </span>
-      
-    </div>
-    
-    <!-- 文章简介 -->
-    <div class="article-content">
-      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        <h2 id="防抖和节流"><a href="#防抖和节流" class="headerlink" title="防抖和节流"></a>防抖和节流</h2><ul>
-<li>什么是防抖？</li>
-</ul>
-<p>只看字面意思很难让人理解，至少我刚接触到这个名词的时候会把防抖和节流混淆。</p>
-<p>最好的理解方式是把它关联到一个应用场景中。举个例子，有一个需求，在搜索框里输入文字时，实时的向后台请求数据，展示在内容区。我们知道当用户输入时会频繁的触发输入事件，这时短时间大量的请求会给后台造成很大压力，而且有一部分请求是没有必要的。我们可以对触发的请求做一个延时，当用户停止触发输入事件后一段时间，才去发送请求。</p>
-      </div>
-    </div>
-    <div class="article-footer">
-      <div class="article-meta pull-left">
-        <!-- 分类pc端可见 -->
-        <span class="pc-view">
-          
-            <i class="iconfont icon-tag"></i>分类:
-            <a href="/categories/js/">
-              js
-            </a>
-          </span>
-          
-        <span>
-          
-            <i class="iconfont icon-06tags"></i>标签:
-            
-              <span class="span--tag">
-                <a href="/tags/js/">
-                  #js
-                </a>
-              </span>
-            
-                    
-        </span>
-      </div>
-      
-        <div class="article-meta pull-right">
-          <span class="pc-view">
-            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="防抖和节流"></span>
-          </span>
-        </div>
-      
-    </div>
-  </div>
-  
-  <div class="post">
-    <h1 class="article-title">
       <a href="/2018/10/28/nodejs模块化/">
         <span>nodejs模块化</span>
       </a>
@@ -568,7 +564,16 @@
     <!-- 文章简介 -->
     <div class="article-content">
       <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        
+        <h2 id="nodejs调试"><a href="#nodejs调试" class="headerlink" title="nodejs调试"></a>nodejs调试</h2><ul>
+<li><p>第三方模块</p>
+<p>npm install node-inspector -g</p>
+<p>npm install devtool -g</p>
+</li>
+<li><p>开发工具调试<br>vscod<br>webStorm</p>
+</li>
+<li><p>Node 原生调试</p>
+</li>
+</ul>
       </div>
     </div>
     <div class="article-footer">
@@ -599,6 +604,82 @@
         <div class="article-meta pull-right">
           <span class="pc-view">
             <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="nodejs调试"></span>
+          </span>
+        </div>
+      
+    </div>
+  </div>
+  
+  <div class="post">
+    <h1 class="article-title">
+      <a href="/2018/10/28/防抖和节流/">
+        <span>防抖和节流</span>
+      </a>
+    </h1>
+    <!-- PC端文章信息 -->
+    <div class="article-top-meta pc-view">
+      <span>
+        发布时间 : 2018-10-28
+      </span>
+    </div>
+    <!-- 移动端文章信息 -->
+    <div class="article-top-meta mobile-view">
+      <span>
+        发布 : 2018-10-28
+      </span>
+      
+        <span>
+        分类 :
+          <a href="/categories/js/">
+            js
+          </a>
+        </span>
+      
+      
+        <span>
+          浏览 : <span class="article-timer" data-identity="防抖和节流"></span>
+        </span>
+      
+    </div>
+    
+    <!-- 文章简介 -->
+    <div class="article-content">
+      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
+        <h2 id="防抖和节流"><a href="#防抖和节流" class="headerlink" title="防抖和节流"></a>防抖和节流</h2><ul>
+<li>什么是防抖？</li>
+</ul>
+<p>只看字面意思很难让人理解，至少我刚接触到这个名词的时候会把防抖和节流混淆。</p>
+<p>最好的理解方式是把它关联到一个应用场景中。举个例子，有一个需求，在搜索框里输入文字时，实时的向后台请求数据，展示在内容区。我们知道当用户输入时会频繁的触发输入事件，这时短时间大量的请求会给后台造成很大压力，而且有一部分请求是没有必要的。我们可以对触发的请求做一个延时，当用户停止触发输入事件后一段时间，才去发送请求。</p>
+      </div>
+    </div>
+    <div class="article-footer">
+      <div class="article-meta pull-left">
+        <!-- 分类pc端可见 -->
+        <span class="pc-view">
+          
+            <i class="iconfont icon-tag"></i>分类:
+            <a href="/categories/js/">
+              js
+            </a>
+          </span>
+          
+        <span>
+          
+            <i class="iconfont icon-06tags"></i>标签:
+            
+              <span class="span--tag">
+                <a href="/tags/js/">
+                  #js
+                </a>
+              </span>
+            
+                    
+        </span>
+      </div>
+      
+        <div class="article-meta pull-right">
+          <span class="pc-view">
+            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="防抖和节流"></span>
           </span>
         </div>
       
@@ -640,7 +721,8 @@
     <!-- 文章简介 -->
     <div class="article-content">
       <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        
+        <h5 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h5><p>首先浏览器会取缓存，如果没有，则取操作系统的hosts文件里域名对应的ip地址。</p>
+<p>如果hosts里也找不到，浏览器就会请求dns获取对应的ip。</p>
       </div>
     </div>
     <div class="article-footer">
@@ -806,85 +888,6 @@
         <div class="article-meta pull-right">
           <span class="pc-view">
             <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="实现网页截图的几种方案"></span>
-          </span>
-        </div>
-      
-    </div>
-  </div>
-  
-  <div class="post">
-    <h1 class="article-title">
-      <a href="/2018/06/10/css权重/">
-        <span>css权重</span>
-      </a>
-    </h1>
-    <!-- PC端文章信息 -->
-    <div class="article-top-meta pc-view">
-      <span>
-        发布时间 : 2018-06-10
-      </span>
-    </div>
-    <!-- 移动端文章信息 -->
-    <div class="article-top-meta mobile-view">
-      <span>
-        发布 : 2018-06-10
-      </span>
-      
-        <span>
-        分类 :
-          <a href="/categories/前端/">
-            前端
-          </a>
-        </span>
-      
-      
-        <span>
-          浏览 : <span class="article-timer" data-identity="css权重"></span>
-        </span>
-      
-    </div>
-    
-    <!-- 文章简介 -->
-    <div class="article-content">
-      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        <h3 id="css-中有不同的选择器，不同的选择器拥有不同的优先级"><a href="#css-中有不同的选择器，不同的选择器拥有不同的优先级" class="headerlink" title="css 中有不同的选择器，不同的选择器拥有不同的优先级"></a>css 中有不同的选择器，不同的选择器拥有不同的优先级</h3><p>!important  Infinity //优先级最高</p>
-<p>行内样式        1000</p>
-<p>id               100</p>
-<p>class |属性|伪类   10</p>
-<p>标签|伪元素        1</p>
-<p>通配符             0</p>
-<p>作用在同一个元素上的选择器，优先级高的生效。 如果优先级相同则靠后的生效</p>
-<p>注意10个标签选择器优先级没有1个class选择器高，选择器之间并不是简单的十进制，有资料说进制为256。</p>
-      </div>
-    </div>
-    <div class="article-footer">
-      <div class="article-meta pull-left">
-        <!-- 分类pc端可见 -->
-        <span class="pc-view">
-          
-            <i class="iconfont icon-tag"></i>分类:
-            <a href="/categories/前端/">
-              前端
-            </a>
-          </span>
-          
-        <span>
-          
-            <i class="iconfont icon-06tags"></i>标签:
-            
-              <span class="span--tag">
-                <a href="/tags/css/">
-                  #css
-                </a>
-              </span>
-            
-                    
-        </span>
-      </div>
-      
-        <div class="article-meta pull-right">
-          <span class="pc-view">
-            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="css权重"></span>
           </span>
         </div>
       

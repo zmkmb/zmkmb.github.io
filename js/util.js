@@ -1,66 +1,49 @@
-const Marked = window.marked;
+var Util = {
+  bind: function(element, name, listener) {
+    element.addEventListener(name, listener, false);
+  },
 
-// Marked.setOptions({
-//   highlight: (code, lang) =>
-//     Prism.highlight(code, Prism.languages[lang || "markup"], lang || "markup")
-// });
+  addClass: function(element, className) {
+    var classes = element.className ? element.className.split(' ') : [];
+    if (classes.indexOf(className) < 0) {
+      classes.push(className);
+    }
 
-const mdToHTML = content => Marked(content)
+    element.className = classes.join(' ');
+    return element;
+  },
 
-const getRealPath = (pathname, desc = false) => {
-  if(!pathname) {
-    pathname = window.location.pathname
-  }
-  let names = pathname.split("/")
-  if(desc === false) {
-    for(let i = names.length - 1; i >= 0; --i) {
-      let name = names[i].trim()
-      if(name.length > 0 && name !== "/" && name !== "index.html") {
-        return name
+  removeClass: function(element, className) {
+    var classes = element.className ? element.className.split(' ') : [];
+    var index = classes.indexOf(className);
+    if (index > -1) {
+      classes.splice(index, 1);
+    }
+
+    element.className = classes.join(' ');
+    return element;
+  },
+
+  request: function(type, url, opts, callback) {
+    var xhr = new XMLHttpRequest();
+    if (typeof opts === 'function') {
+      callback = opts;
+      opts = null;
+    }
+
+    xhr.open(type, url);
+    var fd = new FormData();
+    if (type === 'POST' && opts) {
+      for (var key in opts) {
+        fd.append(key, JSON.stringify(opts[key]));
       }
     }
-  } else {
-    for(let i = 0 ; i < names.length; ++i) {
-      let name = names[i].trim()
-      if(name.length > 0 && name !== "/" && name !== "index.html") {
-        return name
-      }
-    }
-  }
-  return "/"
-}
 
-const generateToc = () => {
-  if(document.body.clientWidth < 768) {
-    return;
+    xhr.onload = function() {
+      callback(JSON.parse(xhr.response));
+    };
+
+    xhr.send(opts ? fd : null);
   }
-  $("#sidebar-header").append("<span> Table of Contents </span>");
-  let sidebar = $("#sidebar"),
-    app = $("#app"),
-    topBtn = $(".back-to-top");
-  app.addClass("sidebar-active");
-  sidebar.addClass("sidebar-active");
-  if (document.body.clientWidth <= 768) {
-    topBtn.attr("style", "right: calc(2rem + 200px);");
-  } else {
-    topBtn.attr("style", "right: calc(2rem + 250px);");
-  }
-  topBtn.addClass("sidebar-active");
-  
-  $(".markdown-body")
-    .find("h2,h3,h4,h5,h6")
-    .each(function(i, item) {
-      let tag = $(item).get(0).localName;
-      let tagID = $(item)
-        .text()
-        .replace(/\s{2}/g, "");
-      $(item).attr("id", tagID);
-      $("#sidebar-toc").append(`
-      <li class="toc-${tag}">
-        <a href="#${tagID}" target="_self">
-          ${tagID}
-        </a>
-      </li>
-    `);
-    });
-}
+
+};

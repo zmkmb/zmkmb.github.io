@@ -7,7 +7,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>树莓派实现远程视频监控 | zmkm</title>
+  <title>使用create_ap建立AP热点 | zmkm</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -15,18 +15,18 @@
     <meta name="keywords" content="树莓派,">
   
 
-  <meta name="description" content="准备树莓派，usb摄像头 使用montion 安装montionsudo apt-get install motion 修改motion配置sudo nano /etc/motion/motion.conf将on改为offstream_localhost off这样就可以在局域网的其他设备上访问motion服务其他配置还可以修改摄像画面的分辨率等 启动motionsudo motion    在">
+  <meta name="description" content="安装create_ap 12345git clone https://github.com/oblique/create_ap.gitcd create_ap/sudo make install  安装依赖   1sudo apt-get install util-linux procps hostapd iproute2 iw haveged dnsmasq -y  建立AP  1sudo c">
 <meta name="keywords" content="树莓派">
 <meta property="og:type" content="article">
-<meta property="og:title" content="树莓派实现远程视频监控">
-<meta property="og:url" content="https://zmkmb.github.io/2018/06/09/树莓派实现远程视频监控/index.html">
+<meta property="og:title" content="使用create_ap建立AP热点">
+<meta property="og:url" content="https://zmkmb.github.io/2018/08/09/使用create_ap建立AP热点/index.html">
 <meta property="og:site_name" content="zmkm">
-<meta property="og:description" content="准备树莓派，usb摄像头 使用montion 安装montionsudo apt-get install motion 修改motion配置sudo nano /etc/motion/motion.conf将on改为offstream_localhost off这样就可以在局域网的其他设备上访问motion服务其他配置还可以修改摄像画面的分辨率等 启动motionsudo motion    在">
+<meta property="og:description" content="安装create_ap 12345git clone https://github.com/oblique/create_ap.gitcd create_ap/sudo make install  安装依赖   1sudo apt-get install util-linux procps hostapd iproute2 iw haveged dnsmasq -y  建立AP  1sudo c">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-18T06:37:23.808Z">
+<meta property="og:updated_time" content="2020-04-07T13:01:16.265Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="树莓派实现远程视频监控">
-<meta name="twitter:description" content="准备树莓派，usb摄像头 使用montion 安装montionsudo apt-get install motion 修改motion配置sudo nano /etc/motion/motion.conf将on改为offstream_localhost off这样就可以在局域网的其他设备上访问motion服务其他配置还可以修改摄像画面的分辨率等 启动motionsudo motion    在">
+<meta name="twitter:title" content="使用create_ap建立AP热点">
+<meta name="twitter:description" content="安装create_ap 12345git clone https://github.com/oblique/create_ap.gitcd create_ap/sudo make install  安装依赖   1sudo apt-get install util-linux procps hostapd iproute2 iw haveged dnsmasq -y  建立AP  1sudo c">
 
   
 
@@ -110,14 +110,14 @@
 
 
 <div class="content content-post CENTER">
-   <article id="post-树莓派实现远程视频监控" class="article article-type-post" itemprop="blogPost">
+   <article id="post-使用create_ap建立AP热点" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">树莓派实现远程视频监控</h1>
+    <h1 class="post-title">使用create_ap建立AP热点</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2018.06.09</span>
+        <span>2018.08.09</span>
       </span>
 
       
@@ -128,6 +128,11 @@
       
 
       
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/树莓派/">树莓派</a>
+  </span>
+
 
 
       
@@ -146,15 +151,19 @@
   <div class="article-content">
     
       <ul>
-<li>准备<br>树莓派，usb摄像头</li>
-<li>使用montion<ul>
-<li>安装montion<br>sudo apt-get install motion</li>
-<li>修改motion配置<br>sudo nano /etc/motion/motion.conf<br>将on改为off<br>stream_localhost off<br>这样就可以在局域网的其他设备上访问motion服务<br>其他配置还可以修改摄像画面的分辨率等</li>
-<li>启动motion<br>sudo motion</li>
-</ul>
+<li><p>安装create_ap</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/oblique/create_ap.git</span><br><span class="line"></span><br><span class="line">cd create_ap/</span><br><span class="line"></span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装依赖</p>
 </li>
 </ul>
-<p>在局域网里打开浏览器，在地址栏输入树莓派的ip地址端口号默认为8081,查看监控画面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install util-linux procps hostapd iproute2 iw haveged dnsmasq -y</span><br></pre></td></tr></table></figure>
+<ul>
+<li>建立AP</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo create_ap -n wlan0 pi 999999999</span><br></pre></td></tr></table></figure>
+<p>在kail系统执行会报iptables错误，可以尝试执行以下命令，切换auto和manual模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#切换版本</span><br><span class="line">update-alternatives --config iptables</span><br></pre></td></tr></table></figure>
 
     
   </div>
@@ -192,10 +201,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2018/03/28/js严格模式/">
+    <a class="show pull-left" href="/2018/07/09/树莓派实现远程视频监控/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2018/06/09/前端常见问题总结/">
+    <a class="show pull-right" href="/2018/10/09/js中带var和不带var的区别/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>

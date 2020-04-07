@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>nodemuc连接阿里云 | zmkm</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="nodemuc mqtt,">
+  
+
+  <meta name="description" content="前言之前买过一块nodemuc,结果一直刷不上固件，开始以为是自己的原因，差点放弃。后来又入手一块ch340版本的板子，还是原来的操作，这次很容易成功了。想到之前买过一个继电器，于是就想做一个远程开关。查了一下相关资料，决定使用阿里云物联网平台来做。">
+<meta name="keywords" content="nodemuc mqtt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodemuc连接阿里云">
+<meta property="og:url" content="https://zmkmb.github.io/2018/10/28/nodemuc连接阿里云/index.html">
+<meta property="og:site_name" content="zmkm">
+<meta property="og:description" content="前言之前买过一块nodemuc,结果一直刷不上固件，开始以为是自己的原因，差点放弃。后来又入手一块ch340版本的板子，还是原来的操作，这次很容易成功了。想到之前买过一个继电器，于是就想做一个远程开关。查了一下相关资料，决定使用阿里云物联网平台来做。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-04-07T13:02:47.515Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nodemuc连接阿里云">
+<meta name="twitter:description" content="前言之前买过一块nodemuc,结果一直刷不上固件，开始以为是自己的原因，差点放弃。后来又入手一块ch340版本的板子，还是原来的操作，这次很容易成功了。想到之前买过一个继电器，于是就想做一个远程开关。查了一下相关资料，决定使用阿里云物联网平台来做。">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_blank">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#准备工作"><span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#下载nodemuc固件"><span class="toc-text">下载nodemuc固件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#刷入固件"><span class="toc-text">刷入固件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#相关代码"><span class="toc-text">相关代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#相关资料"><span class="toc-text">相关资料</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-nodemuc连接阿里云" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">nodemuc连接阿里云</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.10.28</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>zmkm</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/物联网/">物联网</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前买过一块nodemuc,结果一直刷不上固件，开始以为是自己的原因，差点放弃。后来又入手一块ch340版本的板子，还是原来的操作，这次很容易成功了。想到之前买过一个继电器，于是就想做一个远程开关。查了一下相关资料，决定使用阿里云物联网平台来做。<br><a id="more"></a></p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><h4 id="下载nodemuc固件"><a href="#下载nodemuc固件" class="headerlink" title="下载nodemuc固件"></a>下载nodemuc固件</h4><p>下载地址：<a href="https://nodemcu-build.com/index.php" target="_blank" rel="noopener">https://nodemcu-build.com/index.php</a><br>在网页上选择相应的模块，并填写你的邮箱，点击build,网站会生成bin文件发送到你的邮箱里，注意需要sjson,wifi,mqtt,crypto等模块</p>
+<h4 id="刷入固件"><a href="#刷入固件" class="headerlink" title="刷入固件"></a>刷入固件</h4><p>固件烧录工具有多种，这里使用<br><a href="https://github.com/nodemcu/nodemcu-flasher" target="_blank" rel="noopener">https://github.com/nodemcu/nodemcu-flasher</a></p>
+<ul>
+<li>nodemuc 烧录固件</li>
+<li>开通阿里云账户，新建产品，和设备，获取DeviceName，ProductKey，DeviceSecret</li>
+</ul>
+<h4 id="相关代码"><a href="#相关代码" class="headerlink" title="相关代码"></a>相关代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">local sjson = require &quot;sjson&quot;</span><br><span class="line">-----[wifi config]-------------</span><br><span class="line">---------------------------</span><br><span class="line">cfg=&#123;&#125;  </span><br><span class="line">cfg.ssid=&quot;aaa&quot;</span><br><span class="line">cfg.pwd=&quot;123456&quot;</span><br><span class="line"></span><br><span class="line">-----[Aili MQTT 配置]---------</span><br><span class="line">----------------------------</span><br><span class="line">ProductKey =&quot;aaaaaaa&quot;   --换成自己的</span><br><span class="line">ClientId =wifi.sta.getmac()  -- 自定义clientId,这里使用mac地址</span><br><span class="line">DeviceName =&quot;aabbcc&quot;  -- 换成自己的</span><br><span class="line">DeviceSecret=&quot;dfdfdfdfdfdfdfdf&quot;</span><br><span class="line">RegionId=&quot;cn-shanghai&quot;</span><br><span class="line"></span><br><span class="line">myMQTTport=1883    --port</span><br><span class="line">myMQTT=nil        --client</span><br><span class="line"></span><br><span class="line">myMQTThost=ProductKey..&quot;.iot-as-mqtt.&quot;..RegionId..&quot;.aliyuncs.com&quot;   --host</span><br><span class="line">myMQTTusername=DeviceName..&quot;&amp;&quot;..ProductKey          --username</span><br><span class="line"></span><br><span class="line">topic0=&quot;/a1hbvz2HYqO/aabbcc/user/DATA&quot;   --device 的topic</span><br><span class="line"></span><br><span class="line">----[wifi connect]---------------</span><br><span class="line">wifi.setmode(wifi.STATION)  --设置为STA模式</span><br><span class="line">wifi.sta.config(cfg)        --配置</span><br><span class="line">wifi.sta.connect()          --连接wifi</span><br><span class="line"></span><br><span class="line">-----[注册wifi事件]----</span><br><span class="line">wifi.eventmon.register(wifi.eventmon.STA_GOT_IP, function(T)</span><br><span class="line">     print(&quot;Connected, IP is &quot;..wifi.sta.getip())</span><br><span class="line">end)</span><br><span class="line"></span><br><span class="line">wifi.eventmon.register(wifi.eventmon.STA_DISCONNECTED, function(T)</span><br><span class="line">     print(&quot;wifi disconnect&quot;)</span><br><span class="line">end)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">--------[获取时间戳]--------------------</span><br><span class="line">function GetNetTime()</span><br><span class="line">    sntp.sync(&#123;&quot;0.nodemcu.pool.ntp.org&quot;,&quot;1.nodemcu.pool.ntp.org&quot;,&quot;2.nodemcu.pool.ntp.org&quot;,&quot;3.nodemcu.pool.ntp.org&quot;,&quot;www.beijing-time.org&quot;&#125;,</span><br><span class="line">         function(sec, usec, server, info)</span><br><span class="line">                 print(&apos;sync&apos;, sec, usec, server)       </span><br><span class="line">         end,</span><br><span class="line">         function()</span><br><span class="line">            print(&quot;get time error&quot;)</span><br><span class="line">         end)  </span><br><span class="line">    return 0</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">--------MQTT------------------</span><br><span class="line">myMQTTtimes=&apos;6666&apos;</span><br><span class="line">hmacdata=&quot;clientId&quot;..ClientId..&quot;deviceName&quot;..DeviceName..&quot;productKey&quot;..ProductKey..&quot;timestamp&quot;..myMQTTtimes  --hmac 校验的数据</span><br><span class="line">myMQTTpassword=crypto.toHex(crypto.hmac(&quot;sha1&quot;,hmacdata,DeviceSecret))</span><br><span class="line">myMQTTClientId=ClientId..&quot;|securemode=3,signmethod=hmacsha1,timestamp=&quot;..myMQTTtimes..&quot;|&quot;   --设备ID    </span><br><span class="line">----[创建MQTT客户端]</span><br><span class="line">myMQTT=mqtt.Client(myMQTTClientId, 120,myMQTTusername,myMQTTpassword) </span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">----[启动定时连接]</span><br><span class="line">MQTTconnectFlag=0</span><br><span class="line">tmr.alarm(0,1000,1,function()</span><br><span class="line">    if myMQTT~=nil then</span><br><span class="line">        print(&quot;Attempting client connect...&quot;)</span><br><span class="line">        myMQTT:connect(myMQTThost, myMQTTport,0,MQTTSuccess,MQTTFailed)</span><br><span class="line">    end</span><br><span class="line">end)</span><br><span class="line"></span><br><span class="line">---[连接成功]---</span><br><span class="line">function MQTTSuccess(client)</span><br><span class="line">    print(&quot;MQTT connected&quot;)</span><br><span class="line">    client:subscribe(topic0,0, function(conn)     --注册topic0</span><br><span class="line">        print(&quot;subscribe success&quot;) </span><br><span class="line">    end) </span><br><span class="line">    myMQTT=client</span><br><span class="line">    MQTTconnectFlag=1</span><br><span class="line">    tmr.stop(0)        --关闭定时连接</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">---[连接失败]---</span><br><span class="line">function MQTTFailed(client,reson)</span><br><span class="line">    print(&quot;Fail reson:&quot;..reson)</span><br><span class="line">    MQTTconnectFlag=0</span><br><span class="line">    tmr.start(0)     --重新启动连接</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">--[设备offline 事件]-----</span><br><span class="line">myMQTT:on(&quot;offline&quot;, function(client) </span><br><span class="line">    print (&quot;offline&quot;) </span><br><span class="line">    tmr.start(0)</span><br><span class="line">end)</span><br><span class="line"></span><br><span class="line">--[注册 设备接收到订阅的topic 事件]-----</span><br><span class="line">myMQTT:on(&quot;message&quot;, function(client, topic, data) </span><br><span class="line">    print(topic ..&quot;:&quot;) </span><br><span class="line">    if data ~= nil then</span><br><span class="line">        print(data)</span><br><span class="line">        res = sjson.decode(data)</span><br><span class="line">        print(res.status)</span><br><span class="line">        led(res.status)</span><br><span class="line">    end</span><br><span class="line">end)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function led(status)</span><br><span class="line">    print(status)</span><br><span class="line">    pin=4</span><br><span class="line">    gpio.mode(pin,gpio.OUTPUT)</span><br><span class="line">    if status == &apos;1&apos; then</span><br><span class="line">        gpio.write(pin,gpio.LOW)</span><br><span class="line">    else</span><br><span class="line">        gpio.write(pin,gpio.HIGH)</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h4 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h4><ul>
+<li>烧录工具和固件</li>
+<li>开发工具</li>
+</ul>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation" style="height:40px">
+      <span class="btn-donation" style="display:none;">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持一下</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <!--img src="/images/qr-wechat.png" alt=""-->
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <!--img src="/images/qr-alipay.png" alt=""-->
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2018/10/09/js中带var和不带var的区别/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2018/10/28/防抖和节流/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_blank">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

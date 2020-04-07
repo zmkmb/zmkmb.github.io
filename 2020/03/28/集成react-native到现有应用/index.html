@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>集成react-native到现有应用 | zmkm</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="react-native,">
+  
+
+  <meta name="description" content="集成react-native到现有应用React Native 官方文档有详细的介绍，但是按照官方文档操作会遇到很多问题，这里记录一下，自己遇到的一些坑">
+<meta name="keywords" content="react-native">
+<meta property="og:type" content="article">
+<meta property="og:title" content="集成react-native到现有应用">
+<meta property="og:url" content="https://zmkmb.github.io/2020/03/28/集成react-native到现有应用/index.html">
+<meta property="og:site_name" content="zmkm">
+<meta property="og:description" content="集成react-native到现有应用React Native 官方文档有详细的介绍，但是按照官方文档操作会遇到很多问题，这里记录一下，自己遇到的一些坑">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-04-07T12:56:53.698Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="集成react-native到现有应用">
+<meta name="twitter:description" content="集成react-native到现有应用React Native 官方文档有详细的介绍，但是按照官方文档操作会遇到很多问题，这里记录一下，自己遇到的一些坑">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_blank">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#集成react-native到现有应用"><span class="toc-text">集成react-native到现有应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境"><span class="toc-text">环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误"><span class="toc-text">错误</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#couldn’t-find-DSO-to-load-libjscexecutor-so"><span class="toc-text">couldn’t find DSO to load: libjscexecutor.so</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Didn’t-find-class-“com-facebook-react-views-swiperefresh-ReactSwipeRefreshLayout”"><span class="toc-text">Didn’t find class “com.facebook.react.views.swiperefresh.ReactSwipeRefreshLayout”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SoLoader-init-not-yet-called"><span class="toc-text">SoLoader.init() not yet called</span></a></li></ol></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-集成react-native到现有应用" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">集成react-native到现有应用</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2020.03.28</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>zmkm</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/客户端/">客户端</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="集成react-native到现有应用"><a href="#集成react-native到现有应用" class="headerlink" title="集成react-native到现有应用"></a>集成react-native到现有应用</h2><p>React Native 官方文档有详细的介绍，但是按照官方文档操作会遇到很多问题，这里记录一下，自己遇到的一些坑</p>
+<a id="more"></a>
+<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>windows,android,React Native</p>
+<h3 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h3><h4 id="couldn’t-find-DSO-to-load-libjscexecutor-so"><a href="#couldn’t-find-DSO-to-load-libjscexecutor-so" class="headerlink" title="couldn’t find DSO to load: libjscexecutor.so"></a>couldn’t find DSO to load: libjscexecutor.so</h4><p>在依赖中添加以下内容 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &apos;org.webkit:android-jsc:+&apos;</span><br></pre></td></tr></table></figure>
+<p>添加maven</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">maven &#123;</span><br><span class="line"></span><br><span class="line">// Android JSC is installed from npm</span><br><span class="line"></span><br><span class="line">url(&quot;$rootDir/../node_modules/jsc-android/dist&quot;)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Didn’t-find-class-“com-facebook-react-views-swiperefresh-ReactSwipeRefreshLayout”"><a href="#Didn’t-find-class-“com-facebook-react-views-swiperefresh-ReactSwipeRefreshLayout”" class="headerlink" title="Didn’t find class “com.facebook.react.views.swiperefresh.ReactSwipeRefreshLayout”"></a>Didn’t find class “com.facebook.react.views.swiperefresh.ReactSwipeRefreshLayout”</h4><p>在dependencies中加入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &quot;androidx.swiperefreshlayout:swiperefreshlayout:1.0.0&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="SoLoader-init-not-yet-called"><a href="#SoLoader-init-not-yet-called" class="headerlink" title="SoLoader.init() not yet called"></a>SoLoader.init() not yet called</h4><p>在onCreate函数里添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SoLoader.init(this, false);</span><br></pre></td></tr></table></figure></p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation" style="height:40px">
+      <span class="btn-donation" style="display:none;">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持一下</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <!--img src="/images/qr-wechat.png" alt=""-->
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <!--img src="/images/qr-alipay.png" alt=""-->
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/02/18/js继承/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2020/03/28/react native 错误总结/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_blank">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
